@@ -12,20 +12,23 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class QuizRightScreen1 extends JPanel {
-	JFrame jf;
-	JPanel jp;
+public class QuizRightScreen1 {
 	
-	public QuizRightScreen1(JFrame jf) {
+	public void main3() {
+		JFrame fr = new JFrame("QUIZPAGE");
+		fr.setSize(1200, 800);
 		
-//		jf.setSize(1200, 800);
+		JPanel pl = new JPanel();
 		
-		JPanel jp = new JPanel();
 		
 		JTextField as = new JTextField(15);
-		jp.add(as);
+		pl.add(as);
 		as.setBounds(560, 575, 90, 30);
 		
+		
+		
+		
+	
 		
 		JTextArea ta = new JTextArea(3,10);
 		ta.setText("버스에 5명이 있었습니다"
@@ -34,13 +37,25 @@ public class QuizRightScreen1 extends JPanel {
 				+ "그다음 정류장에서 7명이 타고 4명이 내리고\n"
 				+ "그다음 정류장에서 5명이 내리고 1명이 탔습니다\n"
 				+ "지금 버스에 남아있는 사람은 몇명인가요?\n");
-		jp.add(ta);
+		pl.add(ta);
 		ta.setBounds(375, 250, 450, 250);
 		ta.setEditable(false);
 	
+		
+		
+		
 		Image back1 = new ImageIcon("background/QuizMainScreen.png").getImage().getScaledInstance(1200, 800, 0);
 		JLabel label1 = new JLabel(new ImageIcon(back1));
+		
+		
+		
+		
 		ImageIcon answer = new ImageIcon("background/answer.png");
+		
+		
+		
+		
+		
 		JButton answeres = new JButton(answer);
 		
 		answeres.setBounds(503, 600, 200, 100);
@@ -65,11 +80,11 @@ public class QuizRightScreen1 extends JPanel {
 		label1.add(as);
 		label1.add(answeres);
 		
-		jp.add(label1);
-		jf.add(jp);
+		pl.add(label1);
+		fr.add(pl);
 		
-		jf.setVisible(true);
-		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fr.setVisible(true);
+		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
 		
