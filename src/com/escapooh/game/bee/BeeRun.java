@@ -17,15 +17,19 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.escapooh.QuizPage.view.QuizLeftScreen2;
 import com.escapooh.character.SelectCharacter;
 //import com.escapooh.game.timer.TimerClass;
 //import com.escapooh.game.bee.model.vo.LifeNScore;
 import com.escapooh.game.timer.TimerClass2;
+import com.escapooh.loginPage.loginMain.ChangePanel;
+import com.escapooh.pooo.BeeRoom;
 
 public class BeeRun extends JPanel implements KeyListener{
 
 
 	JFrame jf;
+	JPanel jp;
 	private boolean running = true;
 
 	private ArrayList sprites = new ArrayList();
@@ -42,7 +46,7 @@ public class BeeRun extends JPanel implements KeyListener{
 
 		JFrame frame = new JFrame("Bee Game");
 
-		frame.add(new TimerClass2(frame));
+		//frame.add(new TimerClass2(frame));
 		frame.setSize(1200, 800);
 		frame.add(this);
 		frame.setResizable(false);
@@ -109,7 +113,13 @@ public class BeeRun extends JPanel implements KeyListener{
 		initSprites();	
 	}
 	public void endGame(){	
-		//System.exit(0);
+		System.exit(0);
+		
+	}
+	public void victory() {
+		ChangePanel cp = new ChangePanel(jf, jp);
+		BeeRoom br = new BeeRoom(jf);
+		cp.replacePanel(br); 
 	}
 
 	public void removeSprite(Crush sprite) {
@@ -123,7 +133,10 @@ public class BeeRun extends JPanel implements KeyListener{
 
 		//확인용
 		//System.out.println(YourScore);
-
+		if(YourScore == 6000) {
+			//다음으로 넘어가야함.
+			victory();
+		}
 
 	}
 
@@ -160,38 +173,34 @@ public class BeeRun extends JPanel implements KeyListener{
 
 	public void gameLoop() {
 
-		//if(YourScore != 6000) {
-			while (running) {
 
-				for (int i = 0; i < sprites.size(); i++) {
-					Crush sprite = (Crush) sprites.get(i);
-					sprite.move();
+		while (running) {
 
-				}
+			for (int i = 0; i < sprites.size(); i++) {
+				Crush sprite = (Crush) sprites.get(i);
+				sprite.move();
 
-				for (int p = 0; p < sprites.size(); p++) {
+			}
 
-					for (int s = p + 1; s < sprites.size(); s++) {
-						Crush me = (Crush) sprites.get(p);
-						Crush other = (Crush) sprites.get(s);
+			for (int p = 0; p < sprites.size(); p++) {
 
-						if (me.checkCollision(other)) {
-							me.handleCollision(other);
-							other.handleCollision(me);
-						}
+				for (int s = p + 1; s < sprites.size(); s++) {
+					Crush me = (Crush) sprites.get(p);
+					Crush other = (Crush) sprites.get(s);
+
+					if (me.checkCollision(other)) {
+						me.handleCollision(other);
+						other.handleCollision(me);
 					}
 				}
-				repaint();
-
-				try {
-					Thread.sleep(100);
-				} catch (Exception e) {
-				}
 			}
-//		}else{
-			//아무거나 넣어봄
-//			new SelectCharacter();
-//		}
+			repaint();
+
+			try {
+				Thread.sleep(100);
+			} catch (Exception e) {
+			}
+		}
 
 	}
 
