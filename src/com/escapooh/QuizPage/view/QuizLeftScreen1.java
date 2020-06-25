@@ -22,7 +22,7 @@ import com.escapooh.pooo.Room1;
 import com.escapooh.prol.ChangePanel;
 
 public class QuizLeftScreen1 extends JPanel	 {
-	JFrame jf ;
+	JFrame mf ;
 	JPanel jp;
 	public QuizLeftScreen1(JFrame jf) {
 		Scanner sc = new Scanner(System.in);

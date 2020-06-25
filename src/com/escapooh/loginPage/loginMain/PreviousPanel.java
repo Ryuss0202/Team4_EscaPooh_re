@@ -13,14 +13,16 @@ import javax.swing.JPanel;
 import com.escapooh.pooo.MainRoom;
 import com.escapooh.prol.ChangePanel;
 
+
+
 public class PreviousPanel extends JPanel {
-		private JFrame mf;
+		private JFrame jf;
 		private JPanel jp;
 		
-		public PreviousPanel(JFrame mf) {
-			this.mf = mf;
+		public PreviousPanel(JFrame jf) {
+			this.jf = jf;
 			jp = this;
-		Image gameStory = new ImageIcon("background/Ω∫≈‰∏Æ.png").getImage().getScaledInstance(1200, 800, 0);
+		Image gameStory = new ImageIcon("background/Ïä§ÌÜ†Î¶¨.png").getImage().getScaledInstance(1200, 800, 0);
 		JLabel label = new JLabel(new ImageIcon(gameStory));
 		
 		ImageIcon startGame = new ImageIcon("background/Vector.png");
@@ -35,20 +37,26 @@ public class PreviousPanel extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("∞‘¿” «¡∑—∑Œ±◊ »≠∏È √‚∑¬...");
+				System.out.println("Í≤åÏûÑ ÌîÑÎ°§Î°úÍ∑∏ ÌôîÎ©¥ Ï∂úÎ†•...");
 				
+
+				ChangePanel cp = new ChangePanel(jf, jp); 
+				MainRoom t = new MainRoom(jf);
+
 				ChangePanel cp = new ChangePanel(mf, jp); 
 				MainRoom t = new MainRoom(mf);
 
-				cp.replacePanel(t); //∆–≥Œ ±≥√º
+
+				cp.replacePanel(t); //Ìå®ÎÑê ÍµêÏ≤¥
+				
 				
 			}
 		});
 		label.add(btnGame);
 		jp.add(label);
-		mf.add(jp);
+		jf.add(jp);
 		
-		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mf.setVisible(true);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.setVisible(true);
 	}
  }
