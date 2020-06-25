@@ -11,9 +11,10 @@ public class Bee extends Crush{
 		dx = -3;
 	}
 	public void move() {
-		if(((dx < 0)&&(x < 10)) || ((dx > 0) && (x > 800))) {
+		if(((dx < 0)&&(x < 10)) || ((dx > 0) && (x > 1050))) {
 			dx = -dx;
-			y += 10;
+			y += 20;
+			
 			if (y > 600) {
 				run.endGame();
 			}

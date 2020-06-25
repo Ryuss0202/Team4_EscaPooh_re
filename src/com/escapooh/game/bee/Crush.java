@@ -65,7 +65,6 @@ public class Crush {
 		
 		public void handleCollision(Crush other){
 			
-			
 		}
 
 }

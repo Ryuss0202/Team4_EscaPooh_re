@@ -2,7 +2,13 @@ package com.escapooh.game.bee;
 
 import java.awt.Image;
 
+import com.escapooh.game.bee.model.vo.LifeNScore;
+
 public class Bullet extends Crush{
+	LifeNScore ls = new LifeNScore();
+	int score = 0;
+	
+	
 	private BeeRun bee;
 	public Bullet(BeeRun run, Image image, int x, int y) {
 		super(image, x ,y);
@@ -22,6 +28,8 @@ public class Bullet extends Crush{
 		if(other instanceof Bee) {
 			bee.removeSprite(this);
 			bee.removeSprite(other);
+			
+			bee.Score(0);
 		}
 	}
 	

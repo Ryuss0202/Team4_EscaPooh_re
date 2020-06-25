@@ -30,4 +30,8 @@ public class LifeNScore implements Serializable{
 		this.score = score;
 	}
 
+	public int setScore() {
+		return 0;
+	}
+
 }
