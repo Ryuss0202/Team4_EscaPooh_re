@@ -52,7 +52,7 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 	    Toolkit tk = Toolkit.getDefaultToolkit();
 
 	    Image Player_img = new ImageIcon("images/pooh1.png").getImage(); ;
-	    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0);; //배경이미지 설정
+	    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0); //배경이미지 설정
 	    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
 	    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
 	    
