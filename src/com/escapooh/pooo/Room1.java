@@ -53,7 +53,7 @@ public class Room1 extends JPanel  implements KeyListener, Runnable, ImageObserv
 		    Toolkit tk = Toolkit.getDefaultToolkit();
 
 		    Image Player_img = new ImageIcon("images/pooh1.png").getImage(); ;
-		    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0);; //諛곌꼍�솕硫� �씠誘몄�
+		    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0);; //배경 이미지 설정
 		    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
 		    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
 		    
@@ -127,10 +127,7 @@ public class Room1 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			      f_width = 1200;
 			      f_height = 800;
 			      
-
-			      player_Speed = 15; 
-		
-			      player_Speed = 20; 
+			      player_Speed = 50; 
 			      
 			      hud = new Hud(); 
 			 }
@@ -267,7 +264,7 @@ public class Room1 extends JPanel  implements KeyListener, Runnable, ImageObserv
 
 			         if(KeyLeft == true) {
 
-			         if ( x > 180 ) x -= player_Speed;
+//			         if ( x > 180 ) x -= player_Speed;
 
 			         if ( x > 160 ) x -= player_Speed;
 

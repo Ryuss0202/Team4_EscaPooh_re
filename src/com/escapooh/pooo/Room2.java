@@ -46,13 +46,13 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 		   
 		   private Hud hud; 
 		   
-		   
 		    Thread th;
 		    
 		    Toolkit tk = Toolkit.getDefaultToolkit();
 
 		    Image Player_img = new ImageIcon("images/pooh1.png").getImage(); ;
-		    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0);; //諛곌꼍�솕硫� �씠誘몄�
+		    Image BackGround_img = new ImageIcon("images/defaultMap.png").getImage().getScaledInstance(1200, 800, 0);; //배경설정
+		    Image RightDoor_img = new ImageIcon("images/doorRight.png").getImage();
 		    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
 		    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
 		    
@@ -65,8 +65,6 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 		    Image buffImage; 
 		    Graphics buffg;
 		    Graphics2D g2;
-		    
-		    
 		    
 		    public Room2(JFrame jf) {
 		    	this.jf = jf;
@@ -124,11 +122,8 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			      y = 300;
 			      f_width = 1200;
 			      f_height = 800;
-			      
 
-			      player_Speed = 15; 
-		
-			      player_Speed = 20; 
+			      player_Speed = 50; 
 			      
 			      hud = new Hud(); 
 			 }
@@ -188,7 +183,7 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			            buffg.drawImage( fullLife_img2, 165, 6, this);
 			            buffg.drawImage( fullLife_img3, 255, 6, this);
 			            buffg.drawImage( roomNum_img, 520, 250, this);
-		            	
+		            	buffg.drawImage(RightDoor_img, 1000, 293, this);
 			            	
 //			            }else { bx = 0; }
 
@@ -266,7 +261,7 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 
 			         if(KeyLeft == true) {
 
-			         if ( x > 180 ) x -= player_Speed;
+//			         if ( x > 180 ) x -= player_Speed;
 
 			         if ( x > 160 ) x -= player_Speed;
 

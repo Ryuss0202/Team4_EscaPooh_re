@@ -51,7 +51,7 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 	    Toolkit tk = Toolkit.getDefaultToolkit();
 
 	    Image Player_img = new ImageIcon("images/pooh1.png").getImage(); ;
-	    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0);; //諛곌꼍�솕硫� �씠誘몄�
+	    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0);; //배경이미지 설정
 	    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
 	    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
 	    
@@ -120,10 +120,7 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 		      f_width = 1200;
 		      f_height = 800;
 		      
-
-		      player_Speed = 15; 
-	
-		      player_Speed = 20; //유저 캐릭터 움직이는 속도 설정
+		      player_Speed = 50; //유저 캐릭터 움직이는 속도 설정
 		      
 		      hud = new Hud(); //힌트창 그리기
 		 }
@@ -170,8 +167,6 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 		      public void Draw_Background(){
 
 		         buffg.clearRect(0, 0, f_width, f_height);
-		         
-//		         if ( bx > - 3500){
 
 		            buffg.drawImage(BackGround_img, bx, 0, this);
 		            buffg.drawImage(lockdoor_img, 500, 48, this);
@@ -180,7 +175,6 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 		            buffg.drawImage( fullLife_img2, 165, 6, this);
 		            buffg.drawImage( fullLife_img3, 255, 6, this);
 		            	
-//		            }else { bx = 0; }
 
 					
 		      }
@@ -255,7 +249,7 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 
 		         if(KeyLeft == true) {
 
-		         if ( x > 180 ) x -= player_Speed;
+//		         if ( x > 180 ) x -= player_Speed;
 
 		         if ( x > 160 ) x -= player_Speed;
 		         //캐릭터가 보여지는 화면 왼쪽으로 못 넘어가게 합니다.

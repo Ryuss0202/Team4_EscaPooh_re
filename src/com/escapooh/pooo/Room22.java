@@ -123,8 +123,6 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 		      y = 300;
 		      f_width = 1200;
 		      f_height = 800;
-		      
-
 	
 		      player_Speed = 50; //유저 캐릭터 움직이는 속도 설정
 		      
@@ -277,7 +275,7 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 
 		         if(KeyLeft == true) {
 
-		         if ( x > 180 ) x -= player_Speed;
+//		         if ( x > 180 ) x -= player_Speed;
 
 		         if ( x > 160 ) x -= player_Speed;
 		         //캐릭터가 보여지는 화면 왼쪽으로 못 넘어가게 합니다.

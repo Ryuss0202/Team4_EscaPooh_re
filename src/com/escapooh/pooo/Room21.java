@@ -258,7 +258,7 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 
 		         if(KeyLeft == true) {
 
-		         if ( x > 180 ) x -= player_Speed;
+//		         if ( x > 180 ) x -= player_Speed;
 
 		         if ( x > 160 ) x -= player_Speed;
 		         //캐릭터가 보여지는 화면 왼쪽으로 못 넘어가게 합니다.
