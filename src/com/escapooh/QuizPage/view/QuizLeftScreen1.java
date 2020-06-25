@@ -18,6 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import com.escapooh.pooo.Room1;
+import com.escapooh.prol.ChangePanel;
+
 public class QuizLeftScreen1 extends JPanel	 {
 	JFrame jf ;
 	JPanel jp;
@@ -32,7 +35,7 @@ public class QuizLeftScreen1 extends JPanel	 {
 		as.setBounds(560, 575, 90, 30);
 		
 		JTextArea ta = new JTextArea(3,10);
-		ta.setText("인기를 끌었던 드라마로 /n" + "8,90년대 이야기를 담아내었고\n" + "3개에 시리즈까지 나온 이 드라마제목에 들어가는\n" + "첫 번째 숫자는 무엇인가요?");
+		ta.setText("인기를 끌었던 드라마로 /n" + "80,90년대 이야기를 담아내었고\n" + "3개에 시리즈까지 나온 이 드라마제목에 들어가는\n" + "첫 번째 숫자는 무엇인가요?");
 		jp.add(ta);
 		ta.setBounds(375, 250, 450, 250);
 		ta.setEditable(false);
@@ -55,6 +58,10 @@ public class QuizLeftScreen1 extends JPanel	 {
 			
 				if(as.getText().equals("1")) {
 					System.out.println("정답입니다");
+					 
+		        	ChangePanel cp = new ChangePanel(jf, jp);
+					Room1 t = new Room1(jf);
+						cp.replacePanel(t); //패널 교체
 				}else {
 					System.out.println("틀렸습니다");
 				}

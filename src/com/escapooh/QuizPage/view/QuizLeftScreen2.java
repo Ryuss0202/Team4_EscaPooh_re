@@ -12,16 +12,21 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import com.escapooh.pooo.Room2;
+import com.escapooh.prol.ChangePanel;
+
 public class QuizLeftScreen2 extends JPanel {
+	JFrame jf;
+	JPanel jp;
 	
-	public void main2() {
-		JFrame fr = new JFrame("QUIZPAGE");
-		fr.setSize(1200, 800);
+	public QuizLeftScreen2(JFrame jf) {
 		
-		JPanel pl = new JPanel();
+		jf.setSize(1200, 800);
+		
+		JPanel jp = new JPanel();
 		
 		JTextField as = new JTextField(15);
-		pl.add(as);
+		jp.add(as);
 		as.setBounds(560, 575, 90, 30);
 		
 		
@@ -31,7 +36,7 @@ public class QuizLeftScreen2 extends JPanel {
 				+ "해바라기는 새벽에 피어서 낮에지고 장미는해가 뜰때 피고 해가질때 집니다	\n"
 				+ "나팔꽃은 해가 질때 피고 해가 뜰때 집니다 달맞이꽃은 하루 온종일 피어있네요\n"
 				+ "지금은 밤 이네요 지금 피어있는 꽃은 몇개입니까?\n");
-		pl.add(ta);
+		jp.add(ta);
 		ta.setBounds(375, 250, 450, 250);
 		ta.setEditable(false);
 	
@@ -54,6 +59,9 @@ public class QuizLeftScreen2 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if(as.getText().equals("2")) {
 					System.out.println("정답입니다");
+					ChangePanel cp = new ChangePanel(jf, jp);
+					Room2 t = new Room2(jf);
+					cp.replacePanel(t);
 				}else {
 					System.out.println("틀렸습니다");
 				}
@@ -65,11 +73,11 @@ public class QuizLeftScreen2 extends JPanel {
 		label1.add(as);
 		label1.add(answeres);
 		
-		pl.add(label1);
-		fr.add(pl);
+		jp.add(label1);
+		jf.add(jp);
 		
-		fr.setVisible(true);
-		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.setVisible(true);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 }

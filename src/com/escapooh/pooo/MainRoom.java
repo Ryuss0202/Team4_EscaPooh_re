@@ -19,7 +19,7 @@ import com.escapooh.QuizPage.view.QuizRightScreen1;
 import com.escapooh.prol.ChangePanel;
 
 
-public class Test extends JPanel  implements KeyListener, Runnable, ImageObserver {
+public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObserver {
 	
 	 int f_width ;
 	 int f_height ;
@@ -59,6 +59,7 @@ public class Test extends JPanel  implements KeyListener, Runnable, ImageObserve
 	    Image   fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
 	    Image   fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
 	    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
+	    Image   roomNum_img = new ImageIcon("images/1.png").getImage();
 	    Image empty = new ImageIcon("하트_empty.png").getImage();
 	    Image buffImage; 
 	    Graphics buffg;
@@ -66,7 +67,7 @@ public class Test extends JPanel  implements KeyListener, Runnable, ImageObserve
 	    
 	    
 	    
-	    public Test(JFrame jf) {
+	    public MainRoom(JFrame jf) {
 	    	this.jf = jf;
 	    	jp = this;
 	    	
@@ -76,6 +77,7 @@ public class Test extends JPanel  implements KeyListener, Runnable, ImageObserve
          	//JFrame jf = new JFrame();
 			jf.setSize(1200, 800);
 			JPanel jp = new JPanel();
+			
 			
 			JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
 			ldoor.setBounds(500,48,214 ,153);
@@ -218,9 +220,9 @@ public class Test extends JPanel  implements KeyListener, Runnable, ImageObserve
 		         }else if((x >= 850 && x <= 1000) && (y >= 280&& y <= 330)) {
 		        	// buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
 		        	 
-		        	 ChangePanel cp = new ChangePanel(jf, jp);
-						QuizRightScreen1 t = new QuizRightScreen1();
-						cp.replacePanel(t); //패널 교체
+		        	ChangePanel cp = new ChangePanel(jf, jp);
+					QuizRightScreen1 t = new QuizRightScreen1(jf);
+					cp.replacePanel(t); //패널 교체
 		         }
 		      }
 		      
