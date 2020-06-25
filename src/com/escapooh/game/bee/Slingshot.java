@@ -32,7 +32,8 @@ public class Slingshot extends Bullet{
 	@Override
 	public void handleCollision(Crush other){
 		if(other instanceof Bee) {
-			run.endGame();
+		BeeRun br = new BeeRun();
+			br.victory();
 		}
 
 	}
