@@ -1,13 +1,18 @@
 package com.escapooh.semiboss;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.text.StyledEditorKit.BoldAction;
 
 public class EnterPassword extends JPanel {
 
@@ -24,9 +29,26 @@ public class EnterPassword extends JPanel {
 	    
 	    Image fullLife_img1 = new ImageIcon("images/하트_ full 1.png").getImage() ;
 	    Image fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
-	    Image fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
+	    Image fullLife_img3 = new ImageIcon("images/하트_ full 1.png").getImage();
 	    Image lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
 	    Image empty = new ImageIcon("하트_empty.png").getImage();
+	    
+	    
+	    Font font = new Font("sans serif",Font.BOLD, 30);
+	    
+	    JTextField a1 = new JTextField(1);
+	    a1.setBounds(413, 341, 34, 130);
+	    JTextField a2 = new JTextField(2);
+	    a2.setBounds(529, 341, 34, 130);
+	    JTextField a3 = new JTextField(2);
+	    a3.setBounds(643, 341, 34, 130);
+	    JTextField a4 = new JTextField(2);
+	    a4.setBounds(757, 341, 34, 130);
+	    
+	    a1.setFont(font);
+	    a2.setFont(font);
+	    a3.setFont(font);
+	    a4.setFont(font);
 	    
 	    jf.setSize(1200, 800);
 		JPanel jp = new JPanel();
@@ -58,6 +80,15 @@ public class EnterPassword extends JPanel {
 		answer.setFocusPainted(false);
 		answer.setContentAreaFilled(false);
 		
+		answer.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 버튼 클릭 테스트
+				System.out.println("정답 버튼클릭..");
+			}
+		});
+		
 		JButton back = new JButton(backpanel);
 		
 		back.setBounds(643, 523, 140, 62);
@@ -66,7 +97,10 @@ public class EnterPassword extends JPanel {
 		back.setContentAreaFilled(false);
 	
 		
-		
+		backLabel.add(a1);
+		backLabel.add(a2);
+		backLabel.add(a3);
+		backLabel.add(a4);
 		backLabel.add(pwdbig1);
 		backLabel.add(pwdsmall1);
 		backLabel.add(answer);
