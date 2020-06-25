@@ -1,12 +1,11 @@
 package com.escapooh.loginPage.run;
 
-import com.escapooh.loginPage.loginMain.BackgroundImage;
+import com.escapooh.loginPage.loginMain.MainFrame;
 
 public class Run {
 
 	public static void main(String[] args) {
-		BackgroundImage back = new BackgroundImage();
-		back.main();
+		new MainFrame();
 	}
 }
 

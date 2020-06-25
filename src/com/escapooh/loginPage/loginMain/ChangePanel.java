@@ -1,4 +1,4 @@
-package com.escapooh.prol;
+package com.escapooh.loginPage.loginMain;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
