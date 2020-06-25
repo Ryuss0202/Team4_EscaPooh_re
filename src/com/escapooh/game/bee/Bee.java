@@ -8,7 +8,7 @@ public class Bee extends Crush{
 	public Bee(BeeRun run, Image image, int x, int y) {
 		super(image, x, y);
 		this.run = run;
-		dx = -3;
+		dx = -30;
 	}
 	public void move() {
 		if(((dx < 0)&&(x < 10)) || ((dx > 0) && (x > 1050))) {

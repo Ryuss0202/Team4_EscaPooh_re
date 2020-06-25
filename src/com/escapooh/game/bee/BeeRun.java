@@ -1,10 +1,13 @@
 package com.escapooh.game.bee;
 
+import java.awt.Font;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +17,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.escapooh.character.SelectCharacter;
 //import com.escapooh.game.timer.TimerClass;
 //import com.escapooh.game.bee.model.vo.LifeNScore;
 import com.escapooh.game.timer.TimerClass2;
@@ -21,7 +25,7 @@ import com.escapooh.game.timer.TimerClass2;
 public class BeeRun extends JPanel implements KeyListener{
 
 
-	Graphics buffg;
+	JFrame jf;
 	private boolean running = true;
 
 	private ArrayList sprites = new ArrayList();
@@ -37,17 +41,14 @@ public class BeeRun extends JPanel implements KeyListener{
 	public BeeRun() {
 
 		JFrame frame = new JFrame("Bee Game");
-//		TimerClass2 tc = new TimerClass2(frame);
-//
-//		tc.setBounds(1000, 10, 140, 80);
-//		frame.add(tc);
+
+		frame.add(new TimerClass2(frame));
 		frame.setSize(1200, 800);
 		frame.add(this);
 		frame.setResizable(false);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//frame.setComponentZOrder(tc, 0);
 
 		JPanel panel = new JPanel();
 
@@ -120,9 +121,8 @@ public class BeeRun extends JPanel implements KeyListener{
 	public void Score(int score) {
 		YourScore += 100;
 
-		buffg.drawString("HitPoint : " + YourScore, 1100, 90);
 		//È®ÀÎ¿ë
-		System.out.println(YourScore);
+		//System.out.println(YourScore);
 
 
 	}
@@ -143,11 +143,12 @@ public class BeeRun extends JPanel implements KeyListener{
 	public void paint(Graphics g) {
 		super.paint(g);
 
-		//		g.setColor(Color.BLACK);
-		//		g.fillRect(0, 0, 1200, 800);
 
 		Image backImage = Toolkit.getDefaultToolkit().getImage("images/back_Bee.png");
 		g.drawImage(backImage, 0, 0, 1200, 800, this);
+
+		g.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 40));
+		g.drawString("Score : " + YourScore, 900, 100);
 
 		for (int i = 0; i < sprites.size(); i++) {
 
@@ -159,33 +160,38 @@ public class BeeRun extends JPanel implements KeyListener{
 
 	public void gameLoop() {
 
-		while (running) {
+		//if(YourScore != 6000) {
+			while (running) {
 
-			for (int i = 0; i < sprites.size(); i++) {
-				Crush sprite = (Crush) sprites.get(i);
-				sprite.move();
+				for (int i = 0; i < sprites.size(); i++) {
+					Crush sprite = (Crush) sprites.get(i);
+					sprite.move();
 
-			}
+				}
 
-			for (int p = 0; p < sprites.size(); p++) {
+				for (int p = 0; p < sprites.size(); p++) {
 
-				for (int s = p + 1; s < sprites.size(); s++) {
-					Crush me = (Crush) sprites.get(p);
-					Crush other = (Crush) sprites.get(s);
+					for (int s = p + 1; s < sprites.size(); s++) {
+						Crush me = (Crush) sprites.get(p);
+						Crush other = (Crush) sprites.get(s);
 
-					if (me.checkCollision(other)) {
-						me.handleCollision(other);
-						other.handleCollision(me);
+						if (me.checkCollision(other)) {
+							me.handleCollision(other);
+							other.handleCollision(me);
+						}
 					}
 				}
-			}
-			repaint();
+				repaint();
 
-			try {
-				Thread.sleep(10);
-			} catch (Exception e) {
+				try {
+					Thread.sleep(100);
+				} catch (Exception e) {
+				}
 			}
-		}
+//		}else{
+			//¾Æ¹«°Å³ª ³Ö¾îº½
+//			new SelectCharacter();
+//		}
 
 	}
 
@@ -240,7 +246,7 @@ public class BeeRun extends JPanel implements KeyListener{
 	public void keyTyped(KeyEvent arg0) {
 	}
 
-	public static void main(String argv[]) {
+	public static void main(String args[]) {
 
 		BeeRun g = new BeeRun();
 

@@ -10,15 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.escapooh.pooo.MainFrame;
-
-
-
 
 
 public class SelectCharacter extends JPanel{
 	//메인 프레임
-	private MainFrame mf = new MainFrame();
+	private JFrame mf;
 
 	//메인 패널
 
