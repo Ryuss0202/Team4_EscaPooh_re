@@ -13,7 +13,7 @@ public class Bullet extends Crush{
 	public Bullet(BeeRun run, Image image, int x, int y) {
 		super(image, x ,y);
 		this.bee = run;
-		dy = -3;
+		dy = -30;
 	}
 	
 	@Override
