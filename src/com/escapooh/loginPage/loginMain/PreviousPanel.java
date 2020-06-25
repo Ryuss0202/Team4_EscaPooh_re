@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.escapooh.pooo.Test;
+import com.escapooh.pooo.MainRoom;
 import com.escapooh.prol.ChangePanel;
 
 public class PreviousPanel extends JPanel {
@@ -38,7 +38,7 @@ public class PreviousPanel extends JPanel {
 				System.out.println("게임 프롤로그 화면 출력...");
 				
 				ChangePanel cp = new ChangePanel(mf, jp); 
-				Test t = new Test(mf);
+				MainRoom t = new MainRoom(mf);
 
 				cp.replacePanel(t); //패널 교체
 				
