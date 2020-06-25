@@ -22,7 +22,7 @@ public class PreviousPanel extends JPanel {
 		public PreviousPanel(JFrame jf) {
 			this.jf = jf;
 			jp = this;
-		Image gameStory = new ImageIcon("background/스토리.png").getImage().getScaledInstance(1200, 800, 0);
+		Image gameStory = new ImageIcon("background/story.png").getImage().getScaledInstance(1200, 800, 0);
 		JLabel label = new JLabel(new ImageIcon(gameStory));
 		
 		ImageIcon startGame = new ImageIcon("background/Vector.png");
@@ -37,13 +37,16 @@ public class PreviousPanel extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("寃뚯엫 �봽濡ㅻ줈洹� �솕硫� 異쒕젰...");
 				
 
 				ChangePanel cp = new ChangePanel(jf, jp); 
 				MainRoom t = new MainRoom(jf);
 
-				cp.replacePanel(t); //�뙣�꼸 援먯껜
+				cp.replacePanel(t); 
+
+
+				cp.replacePanel(t); 
+
 				
 				
 			}

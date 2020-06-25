@@ -28,7 +28,6 @@ public class Bullet extends Crush{
 		if(other instanceof Bee) {
 			bee.removeSprite(this);
 			bee.removeSprite(other);
-			
 			bee.Score(0);
 		}
 	}

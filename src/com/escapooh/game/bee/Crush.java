@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 
 import com.escapooh.game.bee.model.vo.LifeNScore;
 
-//import com.escapooh.game.bee.model.vo.LifeNScore;
+
 
 public class Crush {
 	
@@ -16,6 +16,8 @@ public class Crush {
 	protected int dy;	//move y
 	
 	private Image image;	//image
+	
+	private BeeRun run;
 	
 	public Crush(Image image, int x, int y) {
 		this.image = image;
@@ -61,6 +63,7 @@ public class Crush {
 			otherRect.setBounds(other.getX(),other.getY(),
 					other.getWidth(),other.getHeight());
 			return myRect.intersects(otherRect);
+			
 		}
 		
 		public void handleCollision(Crush other){
