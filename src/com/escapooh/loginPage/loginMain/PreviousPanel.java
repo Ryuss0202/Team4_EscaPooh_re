@@ -37,7 +37,9 @@ public class PreviousPanel extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				System.out.println("........");
+
 				
 
 				ChangePanel cp = new ChangePanel(jf, jp); 
@@ -45,7 +47,15 @@ public class PreviousPanel extends JPanel {
 
 
 
+
 				cp.replacePanel(t); 
+
+				cp.replacePanel(t); 
+
+
+				cp.replacePanel(t); 
+
+
 				
 				
 			}
