@@ -15,6 +15,7 @@ import com.escapooh.pooo.MainFrame;
 
 
 
+
 public class SelectCharacter extends JPanel{
 	//메인 프레임
 	private MainFrame mf = new MainFrame();
