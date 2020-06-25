@@ -10,15 +10,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.escapooh.pooo.Test;
+import com.escapooh.pooo.MainRoom;
 import com.escapooh.prol.ChangePanel;
 
+
+
 public class PreviousPanel extends JPanel {
-		private JFrame mf;
+		private JFrame jf;
 		private JPanel jp;
 		
-		public PreviousPanel(JFrame mf) {
-			this.mf = mf;
+		public PreviousPanel(JFrame jf) {
+			this.jf = jf;
 			jp = this;
 		Image gameStory = new ImageIcon("background/스토리.png").getImage().getScaledInstance(1200, 800, 0);
 		JLabel label = new JLabel(new ImageIcon(gameStory));
@@ -37,8 +39,8 @@ public class PreviousPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("게임 프롤로그 화면 출력...");
 				
-				ChangePanel cp = new ChangePanel(mf, jp); 
-				Test t = new Test(mf);
+				ChangePanel cp = new ChangePanel(jf, jp); 
+				MainRoom t = new MainRoom(jf);
 
 				cp.replacePanel(t); //패널 교체
 				
@@ -46,9 +48,9 @@ public class PreviousPanel extends JPanel {
 		});
 		label.add(btnGame);
 		jp.add(label);
-		mf.add(jp);
+		jf.add(jp);
 		
-		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mf.setVisible(true);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.setVisible(true);
 	}
  }

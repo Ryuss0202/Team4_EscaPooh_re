@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 public class MainFrame extends JFrame {
 	public MainFrame() {
-		this.setBounds(120, 50, 1200, 800);
+		this.setBounds(0, 0, 1200, 800);
 		
 		this.add(new BackgroundPanel(this));
 		

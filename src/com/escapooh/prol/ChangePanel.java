@@ -4,32 +4,32 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class ChangePanel {
-	private JFrame mf;
-	private JPanel JP;
+	private JFrame jf;
+	private JPanel jP;
 
 
 	public ChangePanel(JFrame mf, JPanel panel) {
-		this.mf = mf;
-		this.JP = panel;
+		this.jf = mf;
+		this.jP = panel;
 	}
 	
 	public void replacePanel(JPanel changePanel) {
-		mf.remove(JP);
-		mf.add(changePanel);
-		mf.repaint();
+		jf.remove(jP);
+		jf.add(changePanel);
+		jf.repaint();
 	}
 	
 	public void resetPanel(){
 		System.out.println("패널변경");
-		mf.remove(JP);
+		jf.remove(jP);
 		//JPanel panel = new GamePanel(mf);
-		mf.add(JP);
-		mf.repaint();
+		jf.add(jP);
+		jf.repaint();
 	}
 	
 	public void replaceRankPanel(JPanel changePanel){
-		mf.remove(JP);
-		mf.add(changePanel);
-		mf.repaint();
+		jf.remove(jP);
+		jf.add(changePanel);
+		jf.repaint();
 	}
 }

@@ -76,7 +76,7 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 	    	start();
 
          	//JFrame jf = new JFrame();
-			jf.setSize(1200, 800);
+			//jf.setSize(1200, 800);
 			JPanel jp = new JPanel();
 			
 			
