@@ -120,8 +120,8 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 
 			public void init(){ 
 				//preInit();
-			      x = 525;
-			      y = 480;
+			      x = 180;
+			      y = 300;
 			      f_width = 1200;
 			      f_height = 800;
 			      
@@ -160,6 +160,11 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			         buffg = buffImage.getGraphics();
 
 			         update(g);
+			         
+			         hud.quiz1pass = true;
+			         hud.quiz2pass = true;
+			         hud.quiz3pass = true;
+			         hud.quiz4pass = true;
 			         hud.draw(g);
 			      }
 			      
@@ -179,8 +184,8 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 //			         if ( bx > - 3500){
 
 			            buffg.drawImage(BackGround_img, bx, 0, this);
-			            buffg.drawImage(lockdoor_img, 500, 48, this);
-			            buffg.drawImage( OpenDoor_img, 500, 596, this);
+//			            buffg.drawImage(lockdoor_img, 500, 48, this);
+//			            buffg.drawImage( OpenDoor_img, 500, 596, this);
 			            buffg.drawImage( fullLife_img1, 75, 6, this);
 			            buffg.drawImage( fullLife_img2, 165, 6, this);
 			            buffg.drawImage( fullLife_img3, 255, 6, this);
@@ -218,9 +223,12 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 						
 			         buffg.drawImage(Player_img, x, y, this);
 			         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
-			        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+//			        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
 			         }
 			         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
+			        	 ChangePanel cp = new ChangePanel(jf, jp);
+							MainRoom t = new MainRoom(jf);
+							cp.replacePanel(t); //패널 교체
 			        	
 			        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
 			         }else if((x >= 850 && x <= 1000) && (y >= 280&& y <= 330)) {

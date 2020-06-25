@@ -120,8 +120,8 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 
 			public void init(){ 
 				//preInit();
-			      x = 525;
-			      y = 480;
+			      x = 870;
+			      y = 300;
 			      f_width = 1200;
 			      f_height = 800;
 			      
@@ -160,6 +160,9 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			         buffg = buffImage.getGraphics();
 
 			         update(g);
+			         
+			         hud.quiz1pass = true;// 힌트 인터페이스 실행
+			         hud.quiz2pass = true;
 			         hud.draw(g);
 			      }
 			      
@@ -179,8 +182,8 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 //			         if ( bx > - 3500){
 
 			            buffg.drawImage(BackGround_img, bx, 0, this);
-			            buffg.drawImage(lockdoor_img, 500, 48, this);
-			            buffg.drawImage( OpenDoor_img, 500, 596, this);
+//			            buffg.drawImage(lockdoor_img, 500, 48, this);
+//			            buffg.drawImage( OpenDoor_img, 500, 596, this);
 			            buffg.drawImage( fullLife_img1, 75, 6, this);
 			            buffg.drawImage( fullLife_img2, 165, 6, this);
 			            buffg.drawImage( fullLife_img3, 255, 6, this);
@@ -218,7 +221,7 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 						
 			         buffg.drawImage(Player_img, x, y, this);
 			         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
-			        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+//			        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
 			         }
 			         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
 			     		 //패널바꾸기 불러옴
@@ -227,13 +230,13 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 						cp.replacePanel(t); //패널 교체
 */			        	
 			        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
-			         }else if((x >= 850 && x <= 1000) && (y >= 280&& y <= 330)) {
+			         }else if((x >= 880 && x <= 1000) && (y >= 280&& y <= 330)) {
 			        	// buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
 			        	 
-			        	/* ChangePanel cp = new ChangePanel(jf, jp);
-							QuizRightScreen2 t = new QuizRightScreen2(jf);
+			        	    ChangePanel cp = new ChangePanel(jf, jp);
+							Room22 t = new Room22(jf);
 							cp.replacePanel(t); //패널 교체
-*/			         }
+ 			         }
 			      }
 			      
 			   
