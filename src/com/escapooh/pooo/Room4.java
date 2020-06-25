@@ -52,16 +52,17 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 		    Toolkit tk = Toolkit.getDefaultToolkit();
 
 		    Image Player_img = new ImageIcon("images/pooh1.png").getImage(); ;
-		    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0);; //諛곌꼍�솕硫� �씠誘몄�
-		    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
-		    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
+		    Image BackGround_img = new ImageIcon("images/defaultMap.png").getImage().getScaledInstance(1200, 800, 0);; //諛곌꼍�솕硫� �씠誘몄�
+//		    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
+//		    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
 		    
 		    Image  fullLife_img1 = new ImageIcon("images/하트_ full 1.png").getImage() ;
 		    Image   fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
 		    Image   fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
-		    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
+//		    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
 		    Image   roomNum_img = new ImageIcon("images/4.png").getImage();
 		    Image empty = new ImageIcon("하트_empty.png").getImage();
+		    Image leftDoor_img = new ImageIcon("images/doorLeft.png").getImage();
 		    Image buffImage; 
 		    Graphics buffg;
 		    Graphics2D g2;
@@ -83,11 +84,11 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 				RoomNum.setBounds(520,250,199 ,247);
 				
 				
-				JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
-				ldoor.setBounds(500,48,214 ,153);
-				
-				JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
-				door.setBounds(500,596,214 ,153);
+//				JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
+//				ldoor.setBounds(500,48,214 ,153);
+//				
+//				JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
+//				door.setBounds(500,596,214 ,153);
 				
 				JLabel backLabel = new JLabel(new ImageIcon(BackGround_img));
 				
@@ -101,8 +102,8 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 				life3.setBounds(230, 6,87 ,94);
 				
 				backLabel.add(RoomNum);
-		      	backLabel.add(ldoor);
-				backLabel.add(door);
+//		      	backLabel.add(ldoor);
+//				backLabel.add(door);
 				backLabel.add(life1);
 				backLabel.add(life2);
 				backLabel.add(life3);
@@ -124,11 +125,8 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			      y = 300;
 			      f_width = 1200;
 			      f_height = 800;
-			      
 
-			      player_Speed = 15; 
-		
-			      player_Speed = 20; 
+			      player_Speed = 50; 
 			      
 			      hud = new Hud(); 
 			 }
@@ -190,6 +188,7 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			            buffg.drawImage( fullLife_img2, 165, 6, this);
 			            buffg.drawImage( fullLife_img3, 255, 6, this);
 			            buffg.drawImage( roomNum_img, 520, 250, this);
+			            buffg.drawImage(leftDoor_img, 48, 293, this);
 		            	
 			            	
 //			            }else { bx = 0; }
@@ -199,11 +198,11 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			
 			      public void Draw_Player(){ 
 
-			    	  JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
-						ldoor.setBounds(500,48,214 ,153);
-						
-						JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
-						door.setBounds(500,596,214 ,153);
+//			    	  JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
+//						ldoor.setBounds(500,48,214 ,153);
+//						
+//						JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
+//						door.setBounds(500,596,214 ,153);
 						
 						JLabel backLabel = new JLabel(new ImageIcon(BackGround_img));
 						
@@ -263,7 +262,7 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 
 			         if(KeyLeft == true) {
 
-			         if ( x > 180 ) x -= player_Speed;
+//			         if ( x > 180 ) x -= player_Speed;
 
 			         if ( x > 160 ) x -= player_Speed;
 
