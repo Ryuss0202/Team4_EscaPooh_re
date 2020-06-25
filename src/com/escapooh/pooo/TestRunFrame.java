@@ -35,8 +35,9 @@ public class TestRunFrame extends JFrame {
    
    ChangePanel cp = new ChangePanel(jf, jp); //패널바꾸기 불러옴
 	//Pooo p = new Pooo();
-	Room22 r22 = new Room22(jf);
-	cp.replacePanel(r22); //패널 교체
+	//Room22 r22 = new Room22(jf);
+   MainRoom m = new MainRoom(jf);
+	cp.replacePanel(m); //패널 교체
    
    jf.setIconImage(Icon);
    jf.setLocation(f_xpos, f_ypos);

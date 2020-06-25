@@ -17,6 +17,7 @@ import com.escapooh.QuizPage.view.QuizLeftScreen1;
 import com.escapooh.QuizPage.view.QuizLeftScreen2;
 import com.escapooh.QuizPage.view.QuizRightScreen1;
 import com.escapooh.prol.ChangePanel;
+import com.escapooh.semiboss.EnterPassword;
 
 
 public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObserver {
@@ -55,11 +56,11 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 	    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
 	    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
 	    
-	    Image  fullLife_img1 = new ImageIcon("images/하트_ full 1.png").getImage() ;
-	    Image   fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
-	    Image   fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
-	    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
-	    Image   roomNum_img = new ImageIcon("images/1.png").getImage();
+	    Image fullLife_img1 = new ImageIcon("images/하트_ full 1.png").getImage() ;
+	    Image fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
+	    Image fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
+	    Image lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
+	    Image roomNum_img = new ImageIcon("images/1.png").getImage();
 	    Image empty = new ImageIcon("하트_empty.png").getImage();
 	    Image buffImage; 
 	    Graphics buffg;
@@ -181,8 +182,6 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 		            buffg.drawImage( fullLife_img3, 255, 6, this);
 		            	
 //		            }else { bx = 0; }
-
-					
 		      }
 		
 		      public void Draw_Player(){ 
@@ -208,7 +207,10 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 					
 		         buffg.drawImage(Player_img, x, y, this);
 		         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
-		        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+		        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+		        	 ChangePanel cp = new ChangePanel(jf, jp);
+						EnterPassword t = new EnterPassword(jf);
+						cp.replacePanel(t); //패널 교체
 		         }
 		         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
 		     		 //패널바꾸기 불러옴
