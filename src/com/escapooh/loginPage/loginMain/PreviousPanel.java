@@ -37,17 +37,13 @@ public class PreviousPanel extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("게임 프롤로그 화면 출력...");
+				System.out.println("寃뚯엫 �봽濡ㅻ줈洹� �솕硫� 異쒕젰...");
 				
 
 				ChangePanel cp = new ChangePanel(jf, jp); 
 				MainRoom t = new MainRoom(jf);
 
-				ChangePanel cp = new ChangePanel(mf, jp); 
-				MainRoom t = new MainRoom(mf);
-
-
-				cp.replacePanel(t); //패널 교체
+				cp.replacePanel(t); //�뙣�꼸 援먯껜
 				
 				
 			}
