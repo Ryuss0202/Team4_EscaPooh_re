@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.StyledEditorKit.BoldAction;
@@ -84,8 +85,31 @@ public class EnterPassword extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// 버튼 클릭 테스트
-				System.out.println("정답 버튼클릭..");
+				
+		//seonjung
+//				if(a1.getText().equals("1")) {
+//					if(a2.getText().equals("2")) {
+//						if(a3.getText().equals("3")) {
+//							if(a4.getText().equals("4")) {
+//								JOptionPane.showMessageDialog(null, "자물쇠가 열렸습니다");
+//								
+//							}else {
+//								JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//								
+//								
+//							}
+//						}else {
+//							JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//							
+//						}
+//					}else {
+//						JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//						
+//					}
+//				}else {
+//					JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//					
+//				}
 			}
 		});
 		
