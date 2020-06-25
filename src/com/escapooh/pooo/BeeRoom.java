@@ -14,10 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class BeeRoom extends JPanel  implements KeyListener, ImageObserver {
+public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObserver {
 
-//	   int f_width;
-//	   int f_height;
+	   int f_width;
+	   int f_height;
 	
 	   boolean KeyUp = false;
 	   boolean KeyDown = false;
@@ -58,8 +58,8 @@ public class BeeRoom extends JPanel  implements KeyListener, ImageObserver {
 			this.setBounds(0, 0, 1200, 800);
 	    	
 			KeyProcess(); 
-//	    	init();
-//	    	start();
+	    	init();
+	    	start();
 
 //        	JFrame jf = new JFrame();
 			
@@ -79,110 +79,153 @@ public class BeeRoom extends JPanel  implements KeyListener, ImageObserver {
 			life2.setBounds(171, 6,87 ,94);
 			
 			JLabel life3 = new JLabel(new ImageIcon(fullLife_img3));
-			life3.setBounds(230, 6,87 ,94);
+			life3.setBounds(290, 6,87 ,94);
 			
-			JLabel box = new JLabel(new ImageIcon(talkBox));
-			box.setBounds(100, 50, 996, 661);
-			
-			JLabel speech1 = new JLabel(new ImageIcon(talk1));
-			box.setBounds(130, 130, 574, 285);
+//			JLabel box = new JLabel(new ImageIcon(talkBox));
+//			box.setBounds(95, 50, 996, 661);
+//			
+//			JLabel speech1 = new JLabel(new ImageIcon(talk1));
+//			speech1.setBounds(90, 130, 574, 285);
+//			
+//			JLabel speech2 = new JLabel(new ImageIcon(talk2));
+//			speech2.setBounds(90, 130, 574, 285);
 			
 //			JLabel Boss = new JLabel(new ImageIcon(boss));
 //			Boss.setBounds(300, 600, 100, 100);
 			
 //	      	backLabel.add(ldoor);
 //			backLabel.add(door);
+
+//			box.add(speech1);
+//			backLabel.add(Boss);
+			
+			
 			backLabel.add(life1);
 			backLabel.add(life2);
 			backLabel.add(life3);
-			backLabel.add(box);
-//			box.add(speech1);
-//			backLabel.add(Boss);
-			jp.add(backLabel);
 			
-	    	
+//			box.add(speech1);
+//			jp.add(box);
+//			jp.add(backLabel);
+			
+//			try {
+//				Thread.sleep(500);
+//			} catch (InterruptedException e) { 
+//				e.printStackTrace();
+//			}
+			
+			
+
+			
+//			try {
+//				Thread.sleep(5000);
+//			} catch (InterruptedException e) { 
+//				e.printStackTrace();
+//			}
+//			
+//			jp.remove(box);
+//			jp.repaint();
+			
+//			try {
+//				Thread.sleep(500);
+//			} catch (InterruptedException e) { 
+//				e.printStackTrace();
+//			}
+//			
+//			box.add(speech2);
+			
+			
+			
 //	    	setSize(f_width, f_height);
 //	    	
 //			setPreferredSize(new Dimension(1200, 800));
 //			setLocation(0, 0);
-			setVisible(true);
+//			setVisible(true);
 			
 		}
 
-//		public void init(){ 
-//			//preInit();
-//		      f_width = 1200;
-//		      f_height = 800;
-//		      
-//		 }
-//		      
-//		public void start(){
-//			
-//			addKeyListener(this);
-//	         th = new Thread(this); 
-//	         th.start(); 
-//	         
-//	      }
-//		      
-//	
-//		public void run(){ 
-//		        try{ 
-//		        while(true){
-//		  
-//		         KeyProcess(); 
-//
-//		         repaint(); 
-//
-//		         Thread.sleep(100);
-//		         }
-//		         }catch (Exception e){}
-//		      }
-//		      
-//		      public void paint(Graphics g){
-//		         buffImage = createImage(f_width, f_height); 
-//		         buffg = buffImage.getGraphics();
-//
-//		         update(g);
-//		      }
-//		      
-//		      public void update(Graphics g){
-//
-//		         Draw_Background();	//배경 이미지 그리기 메소드 실행
-//		         Draw_Player();	//플레이어를 그리는 메소드 이름 변경
-//
-//		         g.drawImage(buffImage, 0, 0, this); 
-//		         
-//		      }
-//
-//		      public void Draw_Background(){
-//
+		public void init(){ 
+			//preInit();
+		      f_width = 1200;
+		      f_height = 800;
+		      
+		 }
+		      
+		public void start(){
+			
+			addKeyListener(this);
+	         th = new Thread(this); 
+	         th.start(); 
+	         
+	      }
+		      
+	
+		public void run(){ 
+		        try{ 
+		        while(true){
+		  
+		         KeyProcess(); 
+
+		         repaint(); 
+
+		         Thread.sleep(100);
+		         }
+		         }catch (Exception e){}
+		      }
+		      
+		      public void paint(Graphics g){
+		         buffImage = createImage(f_width, f_height); 
+		         buffg = buffImage.getGraphics();
+
+		         update(g);
+		      }
+		      
+		      public void update(Graphics g){
+
+		         Draw_Background();	//배경 이미지 그리기 메소드 실행
+		         Draw_Player();	//플레이어를 그리는 메소드 이름 변경
+
+		         g.drawImage(buffImage, 0, 0, this); 
+		         
+		         
+		         
+		      }
+
+		      public void Draw_Background(){
+
 //		         buffg.clearRect(0, 0, f_width, f_height);
-//		         
-////		         if ( bx > - 3500){
-//
-//		            buffg.drawImage(BackGround_img, bx, 0, this);
-////		            buffg.drawImage(lockdoor_img, 500, 48, this);
-////		            buffg.drawImage( OpenDoor_img, 500, 596, this);
-//		            buffg.drawImage( fullLife_img1, 75, 6, this);
-//		            buffg.drawImage( fullLife_img2, 165, 6, this);
-//		            buffg.drawImage( fullLife_img3, 255, 6, this);
+		         
+//		         if ( bx > - 3500){
+
+		            buffg.drawImage(BackGround_img, 0, 0, this);
+//		            buffg.drawImage(lockdoor_img, 500, 48, this);
+//		            buffg.drawImage( OpenDoor_img, 500, 596, this);
+		            buffg.drawImage( fullLife_img1, 75, 6, this);
+		            buffg.drawImage( fullLife_img2, 165, 6, this);
+		            buffg.drawImage( fullLife_img3, 255, 6, this);
 //		            buffg.drawImage(boss, 400, 90, 409, 354, this);
-//		            	
-////		            }else { bx = 0; }
-//
-//					
-//		      }
-//		
-//		      public void Draw_Player(){ 
+		            	
+//		            }else { bx = 0; }
+
+					
+		      }
+		
+		      public void Draw_Player(){ 
 		    	  
-//		    	  buffg.drawImage(talkBox, 100, 100, this);
-//
-////		    	  JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
-////					ldoor.setBounds(500,48,214 ,153);
-////					
-////					JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
-////					door.setBounds(500,596,214 ,153);
+		    	  buffg.drawImage(talkBox, 100, 100, this);
+		    	  
+		    	  buffg.drawImage(talk1, 120, 130, 574, 285, this); 
+		    	  
+		    	  if(KeySpace || KeyEnter == true) {
+		    		  repaint();
+		    	  buffg.drawImage(talk2, 300, 500, 574, 285, this); 
+		    	  }
+//		    	  JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
+//					ldoor.setBounds(500,48,214 ,153);
 //					
+//					JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
+//					door.setBounds(500,596,214 ,153);
+					
 //					JLabel backLabel = new JLabel(new ImageIcon(BackGround_img));
 //					
 //					JLabel life1= new JLabel(new ImageIcon(fullLife_img1));
@@ -193,47 +236,46 @@ public class BeeRoom extends JPanel  implements KeyListener, ImageObserver {
 //					
 //					JLabel life3 = new JLabel(new ImageIcon(fullLife_img3));
 //					life3.setBounds(230, 6,87 ,94);
-//					
-////					JLabel Boss = new JLabel(new ImageIcon(boss));
-////					Boss.setBounds(300, 600, 100, 100);
-//			
-//					
+					
+//					JLabel Boss = new JLabel(new ImageIcon(boss));
+//					Boss.setBounds(300, 600, 100, 100);
+			
+					
 //		         buffg.drawImage(Player_img, x, y, this);
 //		         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
-////		        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+//		        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+		         }
+//		         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
+//		     		 //패널바꾸기 불러옴
+//		        	ChangePanel cp = new ChangePanel(jf, jp);
+//					QuizLeftScreen1 t = new QuizLeftScreen1(jf);
+//					cp.replacePanel(t); //패널 교체
+//		        	
+//		        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+//		         }else if((x >= 850 && x <= 1000) && (y >= 280&& y <= 330)) {
+//		        	// buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+//		        	 
+//		        	ChangePanel cp = new ChangePanel(jf, jp);
+//					QuizRightScreen1 t = new QuizRightScreen1(jf);
+//					cp.replacePanel(t); //패널 교체
 //		         }
-////		         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
-////		     		 //패널바꾸기 불러옴
-////		        	ChangePanel cp = new ChangePanel(jf, jp);
-////					QuizLeftScreen1 t = new QuizLeftScreen1(jf);
-////					cp.replacePanel(t); //패널 교체
-////		        	
-////		        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
-////		         }else if((x >= 850 && x <= 1000) && (y >= 280&& y <= 330)) {
-////		        	// buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
-////		        	 
-////		        	ChangePanel cp = new ChangePanel(jf, jp);
-////					QuizRightScreen1 t = new QuizRightScreen1(jf);
-////					cp.replacePanel(t); //패널 교체
-////		         }
 //		      }
 		      
 		   
 		      
 		      public void KeyProcess(){
 
-		    	  
 		    	 setFocusable(true);
 				 requestFocus();
 				
-				 if(KeyEnter == true) {
+				 
+				 
+				 if(KeyEnter || KeySpace == true) {
+					 
+				 
 				 
 				 }
 				
-				 if(KeySpace == true) {
-					 
-				 }
-           
 //		         if(KeyUp == true) {
 //		         if( y > 120 ) y -= player_Speed;
 //		         //캐릭터가 보여지는 화면 위로 못 넘어가게 합니다.

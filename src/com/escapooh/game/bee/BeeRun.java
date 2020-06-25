@@ -22,7 +22,7 @@ import com.escapooh.character.SelectCharacter;
 //import com.escapooh.game.timer.TimerClass;
 //import com.escapooh.game.bee.model.vo.LifeNScore;
 import com.escapooh.game.timer.TimerClass2;
-import com.escapooh.loginPage.loginMain.ChangePanel;
+import com.escapooh.prol.ChangePanel;
 import com.escapooh.pooo.BeeRoom;
 
 public class BeeRun extends JPanel implements KeyListener{
@@ -117,9 +117,7 @@ public class BeeRun extends JPanel implements KeyListener{
 		
 	}
 	public void victory() {
-		ChangePanel cp = new ChangePanel(jf, jp);
-		BeeRoom br = new BeeRoom(jf);
-		cp.replacePanel(br); 
+		System.exit(0);
 	}
 
 	public void removeSprite(Crush sprite) {
