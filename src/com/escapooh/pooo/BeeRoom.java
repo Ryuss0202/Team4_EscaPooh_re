@@ -14,10 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObserver {
+public class BeeRoom extends JPanel  implements KeyListener, ImageObserver {
 
-	   int f_width;
-	   int f_height;
+//	   int f_width;
+//	   int f_height;
 	
 	   boolean KeyUp = false;
 	   boolean KeyDown = false;
@@ -37,28 +37,31 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 	    
 	    Image  fullLife_img1 = new ImageIcon("images/하트_ full 1.png").getImage() ;
 	    Image   fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
-	    Image   fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
+	    Image   fullLife_img3 = new ImageIcon("images/하트_ full 1.png").getImage();
 //	    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
 //	    Image   roomNum_img = new ImageIcon("images/1.png").getImage();
 	    Image empty = new ImageIcon("하트_empty.png").getImage();
+	    
+	    Image talkBox = new ImageIcon("images/talkBox2.png").getImage();
+	    Image talk1 = new ImageIcon("images/talk1.png").getImage();
+	    Image talk2 = new ImageIcon("images/talk2.png").getImage();
+	    
 	    Image buffImage; 
 	    Graphics buffg;
 	    Graphics2D g2;
 	    
-	    
-	    
 	    public BeeRoom(JFrame jf) {
 	    	this.jf = jf;
 	    	jp = this;
-	    	
+//	   	 requestFocus();
 			this.setLayout(null);
 			this.setBounds(0, 0, 1200, 800);
 	    	
-	    	init();
-	    	start();
+			KeyProcess(); 
+//	    	init();
+//	    	start();
 
 //        	JFrame jf = new JFrame();
-			
 			
 //			JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
 //			ldoor.setBounds(500,48,214 ,153);
@@ -78,6 +81,12 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 			JLabel life3 = new JLabel(new ImageIcon(fullLife_img3));
 			life3.setBounds(230, 6,87 ,94);
 			
+			JLabel box = new JLabel(new ImageIcon(talkBox));
+			box.setBounds(100, 50, 996, 661);
+			
+			JLabel speech1 = new JLabel(new ImageIcon(talk1));
+			box.setBounds(130, 130, 574, 285);
+			
 //			JLabel Boss = new JLabel(new ImageIcon(boss));
 //			Boss.setBounds(300, 600, 100, 100);
 			
@@ -86,67 +95,66 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 			backLabel.add(life1);
 			backLabel.add(life2);
 			backLabel.add(life3);
+			backLabel.add(box);
+//			box.add(speech1);
 //			backLabel.add(Boss);
 			jp.add(backLabel);
+			
 	    	
-			System.out.println("라벨 실행");
-//			
 //	    	setSize(f_width, f_height);
 //	    	
 //			setPreferredSize(new Dimension(1200, 800));
 //			setLocation(0, 0);
 			setVisible(true);
 			
-			
 		}
-	    
 
-		public void init(){ 
-			//preInit();
-		      f_width = 1200;
-		      f_height = 800;
-		      
-		 }
-		      
-		public void start(){
-			
-			addKeyListener(this);
-	         th = new Thread(this); 
-	         th.start(); 
-	         
-	      }
-		      
-	
-		public void run(){ 
-		        try{ 
-		        while(true){
-		  
-		         KeyProcess(); 
-
-		         repaint(); 
-
-		         Thread.sleep(100);
-		         }
-		         }catch (Exception e){}
-		      }
-		      
-		      public void paint(Graphics g){
-		         buffImage = createImage(f_width, f_height); 
-		         buffg = buffImage.getGraphics();
-
-		         update(g);
-		      }
+//		public void init(){ 
+//			//preInit();
+//		      f_width = 1200;
+//		      f_height = 800;
 //		      
-		      public void update(Graphics g){
-
-		         Draw_Background();	//배경 이미지 그리기 메소드 실행
-		         Draw_Player();	//플레이어를 그리는 메소드 이름 변경
-
-		         g.drawImage(buffImage, 0, 0, this); 
-		         
-		      }
-
-		      public void Draw_Background(){
+//		 }
+//		      
+//		public void start(){
+//			
+//			addKeyListener(this);
+//	         th = new Thread(this); 
+//	         th.start(); 
+//	         
+//	      }
+//		      
+//	
+//		public void run(){ 
+//		        try{ 
+//		        while(true){
+//		  
+//		         KeyProcess(); 
+//
+//		         repaint(); 
+//
+//		         Thread.sleep(100);
+//		         }
+//		         }catch (Exception e){}
+//		      }
+//		      
+//		      public void paint(Graphics g){
+//		         buffImage = createImage(f_width, f_height); 
+//		         buffg = buffImage.getGraphics();
+//
+//		         update(g);
+//		      }
+//		      
+//		      public void update(Graphics g){
+//
+//		         Draw_Background();	//배경 이미지 그리기 메소드 실행
+//		         Draw_Player();	//플레이어를 그리는 메소드 이름 변경
+//
+//		         g.drawImage(buffImage, 0, 0, this); 
+//		         
+//		      }
+//
+//		      public void Draw_Background(){
 //
 //		         buffg.clearRect(0, 0, f_width, f_height);
 //		         
@@ -163,9 +171,11 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 ////		            }else { bx = 0; }
 //
 //					
-		      }
+//		      }
 //		
-		      public void Draw_Player(){ 
+//		      public void Draw_Player(){ 
+		    	  
+//		    	  buffg.drawImage(talkBox, 100, 100, this);
 //
 ////		    	  JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
 ////					ldoor.setBounds(500,48,214 ,153);
@@ -206,7 +216,7 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 ////					QuizRightScreen1 t = new QuizRightScreen1(jf);
 ////					cp.replacePanel(t); //패널 교체
 ////		         }
-		      }
+//		      }
 		      
 		   
 		      

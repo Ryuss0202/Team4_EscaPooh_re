@@ -33,18 +33,17 @@ public class TestRunFrame extends JFrame {
    int f_xpos = (int)(screen.getWidth() / 2 - f_width / 2);
    int f_ypos = (int)(screen.getHeight() / 2 - f_height / 2);
    
-   ChangePanel cp = new ChangePanel(jf, jp); //패널바꾸기 불러옴
+   ChangePanel cp = new ChangePanel(jf, jp); //
 	//Pooo p = new Pooo();
 
 	BeeRoom t = new BeeRoom(jf);
 //    Room2 t = new Room2(jf);
 //    Room4 t = new Room4(jf);
-	cp.replacePanel(t); //패널 교체
+	cp.replacePanel(t); //
 
 	//Room22 r22 = new Room22(jf);
-   MainRoom m = new MainRoom(jf);
-	cp.replacePanel(m); //패널 교체
-
+//   MainRoom m = new MainRoom(jf);
+//	cp.replacePanel(m); //
    
    jf.setIconImage(Icon);
    jf.setLocation(f_xpos, f_ypos);
