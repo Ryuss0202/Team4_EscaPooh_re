@@ -12,11 +12,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import com.escapooh.pooo.Room2;
+import com.escapooh.pooo.Room3;
+import com.escapooh.prol.ChangePanel;
+
 public class QuizRightScreen1 extends JPanel {
 	JFrame jf;
 	JPanel jp;
 	
-	public void main3(JFrame jf) {
+	public QuizRightScreen1(JFrame jf)  {
 		
 		jf.setSize(1200, 800);
 		
@@ -55,6 +59,10 @@ public class QuizRightScreen1 extends JPanel {
 				
 				if(as.getText().equals("3")) {
 					System.out.println("정답입니다");
+					ChangePanel cp = new ChangePanel(jf, jp);
+					Room3 t = new Room3(jf);
+					cp.replacePanel(t);
+					
 				}else {
 					System.out.println("틀렸습니다");
 				}

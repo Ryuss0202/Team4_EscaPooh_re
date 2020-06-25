@@ -12,41 +12,36 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class QuizRightScreen2 {
+import com.escapooh.pooo.Room4;
+import com.escapooh.prol.ChangePanel;
+
+public class QuizRightScreen2 extends JPanel{
+	JFrame jf;
+	JPanel jp;
 	
-	public void main4() {
-		JFrame fr = new JFrame("QUIZPAGE");
-		fr.setSize(1200, 800);
+	public QuizRightScreen2(JFrame jf) {
 		
-		JPanel pl = new JPanel();
+		jf.setSize(1200, 800);
+		
+		JPanel jp = new JPanel();
 		
 		
 		JTextField as = new JTextField(15);
-		pl.add(as);
+		jp.add(as);
 		as.setBounds(560, 575, 90, 30);
 		
 		
 		JTextArea ta = new JTextArea(3,10);
 		ta.setText("도라지 꽃 + 개나리꽃 - 복숭아꽃 = ?\n"
 				+ "꽃잎은 모두 몇장입니다?");
-		pl.add(ta);
+		jp.add(ta);
 		ta.setBounds(375, 250, 450, 250);
 		ta.setEditable(false);
 	
-		
-		
-		
 		Image back1 = new ImageIcon("background/QuizMainScreen.png").getImage().getScaledInstance(1200, 800, 0);
 		JLabel label1 = new JLabel(new ImageIcon(back1));
-		
-		
-		
-		
+	
 		ImageIcon answer = new ImageIcon("background/answer.png");
-		
-		
-		
-		
 		
 		JButton answeres = new JButton(answer);
 		
@@ -62,6 +57,10 @@ public class QuizRightScreen2 {
 				
 				if(as.getText().equals("4")) {
 					System.out.println("정답입니다");
+					 //패널바꾸기 불러옴
+		        	ChangePanel cp = new ChangePanel(jf, jp);
+					Room4 t = new Room4(jf);
+					cp.replacePanel(t); //패널 교체
 				}else {
 					System.out.println("틀렸습니다");
 				}
@@ -72,14 +71,11 @@ public class QuizRightScreen2 {
 		label1.add(as);
 		label1.add(answeres);
 		
-		pl.add(label1);
-		fr.add(pl);
+		jp.add(label1);
+		jf.add(jp);
 		
-		fr.setVisible(true);
-		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
+		jf.setVisible(true);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
-	
 }
