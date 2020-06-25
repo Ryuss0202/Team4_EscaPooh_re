@@ -36,14 +36,14 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 	   boolean KeyLeft = false;
 	   boolean KeyRight = false;
 	   boolean KeySpace = false;
-	   int player_Speed; // �쑀���쓽 罹먮┃�꽣媛� ��吏곸씠�뒗 �냽�룄瑜� 議곗젅�븷 蹂��닔
+	   int player_Speed; // 유저의 캐릭터가 움직이는 속도를 조절할 변수
 	   int player_Status = 0; 
 
 	   private JFrame jf;
 	   private JPanel jp;
 	   //private JTextField timeOP = new JTextField(6);
 	   
-	   private Hud hud; // �엺�듃李� �겢�옒�뒪 �엯�젰
+	   private Hud hud; // 힌트창 클래스 입력
 	   
 	   
 	    Thread th;
@@ -123,9 +123,9 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 
 		      player_Speed = 15; 
 	
-		      player_Speed = 20; 
+		      player_Speed = 20; //유저 캐릭터 움직이는 속도 설정
 		      
-		      hud = new Hud(); 
+		      hud = new Hud(); //힌트창 그리기
 		 }
 		      
 		public void start(){
@@ -160,8 +160,8 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 		      
 		      public void update(Graphics g){
 
-		         Draw_Background();
-		         Draw_Player();
+		         Draw_Background();	//배경 이미지 그리기 메소드 실행
+		         Draw_Player();	//플레이어를 그리는 메소드 이름 변경
 
 		         g.drawImage(buffImage, 0, 0, this); 
 		         
@@ -241,14 +241,16 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
             
 		         if(KeyUp == true) {
 		         if( y > 120 ) y -= player_Speed;
-		         
+		         //캐릭터가 보여지는 화면 위로 못 넘어가게 합니다.
 		         player_Status = 0;
+		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
 		         }
 
 		         if(KeyDown == true) {
 		         if( y+ Player_img.getHeight(null) < f_height - 190 ) y += player_Speed;
-
+		         //캐릭터가 보여지는 화면 아래로 못 넘어가게 합니다.
 		         player_Status = 0;
+		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
 		         }
 
 		         if(KeyLeft == true) {
@@ -256,15 +258,18 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 		         if ( x > 180 ) x -= player_Speed;
 
 		         if ( x > 160 ) x -= player_Speed;
-
+		         //캐릭터가 보여지는 화면 왼쪽으로 못 넘어가게 합니다.
 
 		         player_Status = 0;
+		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
 		         }
 
 		         if(KeyRight == true) {
 		         if ( x + Player_img.getWidth(null) < f_width - 170 ) x += player_Speed;
+		         //캐릭터가 보여지는 화면 오른쪽으로 못 넘어가게 합니다.
 
 		         player_Status = 0;
+		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
 		         }
 		         
 		      }

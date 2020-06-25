@@ -62,6 +62,7 @@ public class Room3 extends JPanel  implements KeyListener, Runnable, ImageObserv
 		    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
 		    Image   roomNum_img = new ImageIcon("images/3.png").getImage();
 		    Image empty = new ImageIcon("하트_empty.png").getImage();
+		    Image cantPass = new ImageIcon("images/GAME OVER.png").getImage();
 		    Image buffImage; 
 		    Graphics buffg;
 		    Graphics2D g2;
@@ -120,8 +121,8 @@ public class Room3 extends JPanel  implements KeyListener, Runnable, ImageObserv
 
 			public void init(){ 
 				//preInit();
-			      x = 525;
-			      y = 480;
+			      x = 180;
+			      y = 300;
 			      f_width = 1200;
 			      f_height = 800;
 			      
@@ -160,6 +161,10 @@ public class Room3 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			         buffg = buffImage.getGraphics();
 
 			         update(g);
+			         
+			         hud.quiz1pass = true;
+			         hud.quiz2pass = true;
+			         hud.quiz3pass = true;
 			         hud.draw(g);
 			      }
 			      
@@ -179,8 +184,8 @@ public class Room3 extends JPanel  implements KeyListener, Runnable, ImageObserv
 //			         if ( bx > - 3500){
 
 			            buffg.drawImage(BackGround_img, bx, 0, this);
-			            buffg.drawImage(lockdoor_img, 500, 48, this);
-			            buffg.drawImage( OpenDoor_img, 500, 596, this);
+//			            buffg.drawImage(lockdoor_img, 500, 48, this);
+//			            buffg.drawImage( OpenDoor_img, 500, 596, this);
 			            buffg.drawImage( fullLife_img1, 75, 6, this);
 			            buffg.drawImage( fullLife_img2, 165, 6, this);
 			            buffg.drawImage( fullLife_img3, 255, 6, this);
@@ -218,10 +223,10 @@ public class Room3 extends JPanel  implements KeyListener, Runnable, ImageObserv
 						
 			         buffg.drawImage(Player_img, x, y, this);
 			         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
-			        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+//			        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
 			         }
 			         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
-			     		 //패널바꾸기 불러옴
+			        	 buffg.drawImage(cantPass, 200, 200, this);
 			        	
 			        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
 			         }else if((x >= 850 && x <= 1000) && (y >= 280&& y <= 330)) {
