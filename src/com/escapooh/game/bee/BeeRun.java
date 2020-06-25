@@ -7,7 +7,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,17 +18,16 @@ import javax.swing.JPanel;
 
 import com.escapooh.QuizPage.view.QuizLeftScreen2;
 import com.escapooh.character.SelectCharacter;
-//import com.escapooh.game.timer.TimerClass;
-//import com.escapooh.game.bee.model.vo.LifeNScore;
-import com.escapooh.game.timer.TimerClass2;
-import com.escapooh.loginPage.loginMain.ChangePanel;
+//import com.escapooh.game.timer.TimerClass2;
 import com.escapooh.pooo.BeeRoom;
+import com.escapooh.pooo.Room22;
+import com.escapooh.prol.ChangePanel;
 
 public class BeeRun extends JPanel implements KeyListener{
 
 
-	JFrame jf;
-	JPanel jp;
+	private JFrame jf;
+	private JPanel jp;
 	private boolean running = true;
 
 	private ArrayList sprites = new ArrayList();
@@ -39,23 +37,22 @@ public class BeeRun extends JPanel implements KeyListener{
 	private BufferedImage shotImage;
 	private BufferedImage shipImage;
 
-	int YourScore = 0;
+	private int YourScore = 0;
 
 
-	public BeeRun() {
-
-		JFrame frame = new JFrame("Bee Game");
-
+	public BeeRun(JFrame jf) {
 		//frame.add(new TimerClass2(frame));
-		frame.setSize(1200, 800);
-		frame.add(this);
-		frame.setResizable(false);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		this.jf = jf;
+		jp = this;
+		jf.setSize(1200, 800);
+		jf.add(this);
+		jf.setResizable(false);
+		jf.setVisible(true);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JPanel panel = new JPanel();
-
+		this.jf = jf;
+    	jp = this;
 
 		try {
 
@@ -113,13 +110,14 @@ public class BeeRun extends JPanel implements KeyListener{
 		initSprites();	
 	}
 	public void endGame(){	
-		System.exit(0);
-		
+		//System.exit(0);
 	}
 	public void victory() {
+
 		ChangePanel cp = new ChangePanel(jf, jp);
-		BeeRoom br = new BeeRoom(jf);
-		cp.replacePanel(br); 
+		Room22 t = new Room22(jf);
+		cp.replacePanel(t); //패널 교체
+		//System.exit(0);
 	}
 
 	public void removeSprite(Crush sprite) {
@@ -255,12 +253,14 @@ public class BeeRun extends JPanel implements KeyListener{
 	public void keyTyped(KeyEvent arg0) {
 	}
 
-	public static void main(String args[]) {
-
-		BeeRun g = new BeeRun();
-
-		g.gameLoop();
-	}
+//	public static void main(String args[]) {
+//
+//		JFrame jf = new JFrame();
+//
+//		BeeRun g = new BeeRun(jf);
+//
+//		g.gameLoop();
+//	}
 
 }
 
