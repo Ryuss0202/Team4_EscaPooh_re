@@ -2,8 +2,11 @@ package com.escapooh.game.bee;
 
 import java.awt.Image;
 
+import javax.swing.JFrame;
+
 public class Slingshot extends Bullet{
 
+	private JFrame jf;
 	public BeeRun run;
 
 	public Slingshot(BeeRun run, Image image, int x, int y) {
@@ -32,8 +35,7 @@ public class Slingshot extends Bullet{
 	@Override
 	public void handleCollision(Crush other){
 		if(other instanceof Bee) {
-		BeeRun br = new BeeRun();
-			br.victory();
+			run.endGame();
 		}
 
 	}
