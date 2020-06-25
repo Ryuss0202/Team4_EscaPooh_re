@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.escapooh.pooo.MainFrame;
+//import com.escapooh.pooo.MainFrame;
 
 
 
@@ -18,7 +18,7 @@ import com.escapooh.pooo.MainFrame;
 
 public class SelectCharacter extends JPanel{
 	//메인 프레임
-	private MainFrame mf = new MainFrame();
+//	private MainFrame mf = new MainFrame();
 
 	//메인 패널
 
@@ -109,21 +109,21 @@ public class SelectCharacter extends JPanel{
 		//패널 생성되어 있음.
 		//panel.add();
 
-		mf.setBounds(0,0,1200,800);
-
-		mf.add(SLTpooh);
-		mf.add(SLTpiglet);
-		mf.add(SLTtigger);
-
-		mf.add(select);
-
-		mf.setResizable(false);
-		mf.setLocationRelativeTo(null);
-
-		mf.setLayout(null);
-		mf.add(label);
-		mf.setVisible(true);
-		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		mf.setBounds(0,0,1200,800);
+//
+//		mf.add(SLTpooh);
+//		mf.add(SLTpiglet);
+//		mf.add(SLTtigger);
+//
+//		mf.add(select);
+//
+//		mf.setResizable(false);
+//		mf.setLocationRelativeTo(null);
+//
+//		mf.setLayout(null);
+//		mf.add(label);
+//		mf.setVisible(true);
+//		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 

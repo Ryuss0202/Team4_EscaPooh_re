@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.escapooh.pooo.MainFrame;
+//import com.escapooh.pooo.MainFrame;
 
 public class TimerClass extends JPanel{
 	private JFrame mf = new JFrame();

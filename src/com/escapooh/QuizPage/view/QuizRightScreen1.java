@@ -16,9 +16,9 @@ public class QuizRightScreen1 extends JPanel {
 	JFrame jf;
 	JPanel jp;
 	
-	public void main3(JFrame jf) {
+	public QuizRightScreen1(JFrame jf) {
 		
-		jf.setSize(1200, 800);
+//		jf.setSize(1200, 800);
 		
 		JPanel jp = new JPanel();
 		

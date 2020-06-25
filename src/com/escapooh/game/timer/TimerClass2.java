@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.escapooh.game.bee.BeeRun;
-import com.escapooh.pooo.MainFrame;
+//import com.escapooh.pooo.MainFrame;
 import com.escapooh.pooo.Test;
 
 

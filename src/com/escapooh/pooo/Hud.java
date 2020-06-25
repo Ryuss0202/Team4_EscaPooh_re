@@ -27,10 +27,10 @@ public class Hud {
 	static BufferedImage HINT3;
 	static BufferedImage HINT4;
 	
-	boolean quiz1pass = true;
-	boolean quiz2pass = true;
-	boolean quiz3pass = true;
-	boolean quiz4pass = true;
+	public boolean quiz1pass = false;
+	public boolean quiz2pass = false;
+	public boolean quiz3pass = false;
+	public boolean quiz4pass = false;
 	
 	//미래를 대비한 갯수확인과 폰트지정
 //	private int numHints;
@@ -44,25 +44,25 @@ public class Hud {
 		
 		// 힌트 이미지 추가
 		try {
-			HINT1 = ImageIO.read(new File("images/number0.png"));
+			HINT1 = ImageIO.read(new File("images/number1.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			HINT2 = ImageIO.read(new File("images/number0.png"));
+			HINT2 = ImageIO.read(new File("images/number2.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			HINT3 = ImageIO.read(new File("images/number0.png"));
+			HINT3 = ImageIO.read(new File("images/number3.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			HINT4 = ImageIO.read(new File("images/number0.png"));
+			HINT4 = ImageIO.read(new File("images/number4.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
