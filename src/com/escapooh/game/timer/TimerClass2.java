@@ -10,16 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-//import com.escapooh.game.bee.BeeRun;
-//import com.escapooh.pooo.MainFrame;
-//import com.escapooh.pooo.Test;
-
 
 //라벨로 한번 바꿔서 해보기
 public class TimerClass2 extends JPanel{
-//	private MainFrame mf = new MainFrame();
-	
-	private JFrame jf = new JFrame();
 	
 	private JTextField timeOP = new JTextField(6);
 	private JLabel display = new JLabel();
@@ -33,7 +26,7 @@ public class TimerClass2 extends JPanel{
 			public void run() {
 
 				for(int i = 0;;i++) {
-					System.out.println(i);
+					//System.out.println(i);
 					secTo(i);
 					timeOP.setText(timerBuffer);
 					try {
@@ -48,14 +41,12 @@ public class TimerClass2 extends JPanel{
 		timer.schedule(task, 100);
 
 		
-		//timeOP.setEditable(false);
-		timeOP.setFont(new Font("맑은 고딕", 0, 36));
-		//timeOP.setBounds(1000, 10, 140, 80);
-		display.add(timeOP);
-		display.setVisible(true);
-//		jf.setLayout(null);
-//		jf.setBounds(0, 0, 1200, 800);
-//		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		timeOP.setEditable(false);
+		timeOP.setFont(new Font("맑은 고딕", 0, 15));
+
+		jf.add(timeOP);
+		timeOP.setBounds(1000, 10, 80, 40);
+
 
 	}
 
@@ -68,14 +59,5 @@ public class TimerClass2 extends JPanel{
 
 		timerBuffer = String.format("%02d:%02d:%02d", hour, min, sec);
 	}
-
-//테스트용 임시 메인 삭제
-//  public static void main(String[] args) {
-//	  JFrame jf = new JFrame();
-//      new TimerClass2(jf);
-//      
-//      jf.setVisible(true);
-//      jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//  }
 	
 }

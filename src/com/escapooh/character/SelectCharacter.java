@@ -1,3 +1,4 @@
+
 //package com.escapooh.character;
 //
 //import java.awt.Image;
@@ -17,14 +18,14 @@
 //
 //
 //public class SelectCharacter extends JPanel{
-//	//¸ŞÀÎ ÇÁ·¹ÀÓ
+//	//ë©”ì¸ í”„ë ˆì„
 //	private MainFrame mf = new MainFrame();
 //
-//	//¸ŞÀÎ ÆĞ³Î
+//	//ë©”ì¸ íŒ¨ë„
 //
 //	private JPanel panel = new JPanel();
 //
-//	//ÀÌ¹ÌÁö ¾ÆÀÌÄÜ
+//	//ì´ë¯¸ì§€ ì•„ì´ì½˜
 //	private ImageIcon selectButton = new ImageIcon("images/selectButton.png");
 //	private ImageIcon selectedButton = new ImageIcon("images/selectButton2.png");
 //
@@ -40,13 +41,13 @@
 //	private JLabel label = new JLabel(new ImageIcon(BG));
 //
 //
-//	//¼±ÅÃ¹öÆ°
+//	//ì„ íƒë²„íŠ¼
 //	private JButton select = new JButton();
 //
 //	public SelectCharacter() {
-//		System.out.println("½ÇÇàÁß");
+//		System.out.println("ì‹¤í–‰ì¤‘");
 //
-//		//¹öÆ°
+//		//ë²„íŠ¼
 //		button(SLTpooh);
 //		button(SLTpiglet);
 //		button(SLTtigger);
@@ -65,7 +66,7 @@
 //
 //			@Override
 //			public void actionPerformed(ActionEvent e) {
-//				System.out.println("Çª°¡ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+//				System.out.println("í‘¸ê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
 //			}
 //		});
 //
@@ -73,25 +74,25 @@
 //
 //			@Override
 //			public void actionPerformed(ActionEvent e) {
-//				System.out.println("ÇÇ±Û·¿ÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+//				System.out.println("í”¼ê¸€ë ›ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
 //			}
 //		});
 //		SLTtigger.addActionListener(new ActionListener() {
 //
 //			@Override
 //			public void actionPerformed(ActionEvent e) {
-//				System.out.println("Æ¼°Å°¡ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+//				System.out.println("í‹°ê±°ê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
 //			}
 //		});
 //
 //
-//		//¹öÆ°
+//		//ë²„íŠ¼
 //		select.setPressedIcon(selectedButton);
 //		select.addActionListener(new ActionListener() {
 //
 //			@Override
 //			public void actionPerformed(ActionEvent e) {
-//				System.out.println("°ÔÀÓÀÌ ½ÃÀÛµË´Ï´Ù.");
+//				System.out.println("ê²Œì„ì´ ì‹œì‘ë©ë‹ˆë‹¤.");
 //			}
 //		});
 //		select.setIcon(selectButton);
@@ -105,8 +106,8 @@
 //		label.setBounds(0, 0, 1200, 800);
 //
 //
-//		//È®ÀÎ¿ë
-//		//ÆĞ³Î »ı¼ºµÇ¾î ÀÖÀ½.
+//		//í™•ì¸ìš©
+//		//íŒ¨ë„ ìƒì„±ë˜ì–´ ìˆìŒ.
 //		//panel.add();
 //
 //		mf.setBounds(0,0,1200,800);
@@ -135,8 +136,148 @@
 //		b.setContentAreaFilled(false);
 //	}
 //
-//	//ÀÓ½Ã ¸ŞÀÎ¸Ş¼Òµå
+//	//ì„ì‹œ ë©”ì¸ë©”ì†Œë“œ
 //	public static void main(String[] args) {
 //		new SelectCharacter();
 //	}
 //}
+
+package com.escapooh.character;
+
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+
+public class SelectCharacter extends JPanel{
+	//ë©”ì¸ í”„ë ˆì„
+	private JFrame mf;
+
+	//ë©”ì¸ íŒ¨ë„
+
+	private JPanel panel = new JPanel();
+
+	//ì´ë¯¸ì§€ ì•„ì´ì½˜
+	private ImageIcon selectButton = new ImageIcon("images/selectButton.png");
+	private ImageIcon selectedButton = new ImageIcon("images/selectButton2.png");
+
+	private ImageIcon pooh = new ImageIcon("images/pooh.png");
+	private ImageIcon piglet = new ImageIcon("images/piglet.png");
+	private ImageIcon tigger = new ImageIcon("images/tigger.png");
+	private Image BG = new ImageIcon("images/select.png").getImage().getScaledInstance(1200, 800, 0);
+
+	private JButton SLTpooh = new JButton();
+	private JButton SLTpiglet = new JButton();
+	private JButton SLTtigger = new JButton();
+
+	private JLabel label = new JLabel(new ImageIcon(BG));
+
+
+	//ì„ íƒë²„íŠ¼
+	private JButton select = new JButton();
+
+	public SelectCharacter() {
+		System.out.println("ì‹¤í–‰ì¤‘");
+
+		//ë²„íŠ¼
+		button(SLTpooh);
+		button(SLTpiglet);
+		button(SLTtigger);
+
+		SLTpooh.setIcon(pooh);
+		SLTpooh.setBounds(100, 250, 300, 400);
+
+		SLTpiglet.setIcon(piglet);
+		SLTpiglet.setBounds(430, 250, 300, 400);;
+
+		SLTtigger.setIcon(tigger);
+		SLTtigger.setBounds(750, 250, 300, 400);
+
+
+		SLTpooh.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("í‘¸ê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
+			}
+		});
+
+		SLTpiglet.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("í”¼ê¸€ë ›ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
+			}
+		});
+		SLTtigger.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("í‹°ê±°ê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
+			}
+		});
+
+
+		//ë²„íŠ¼
+		select.setPressedIcon(selectedButton);
+		select.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("ê²Œì„ì´ ì‹œì‘ë©ë‹ˆë‹¤.");
+			}
+		});
+		select.setIcon(selectButton);
+		select.setBounds(430, 650, 300, 100);
+
+		select.setBorderPainted(false); 
+		select.setFocusPainted(false); 
+		select.setContentAreaFilled(false);
+
+		label.setLayout(null);
+		label.setBounds(0, 0, 1200, 800);
+
+
+		//í™•ì¸ìš©
+		//íŒ¨ë„ ìƒì„±ë˜ì–´ ìˆìŒ.
+		//panel.add();
+
+		mf.setBounds(0,0,1200,800);
+
+		mf.add(SLTpooh);
+		mf.add(SLTpiglet);
+		mf.add(SLTtigger);
+
+		mf.add(select);
+
+		mf.setResizable(false);
+		mf.setLocationRelativeTo(null);
+
+		mf.setLayout(null);
+		mf.add(label);
+		mf.setVisible(true);
+		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+
+
+	public void button(JButton b) {
+
+		b.setBorderPainted(false); 
+		b.setFocusPainted(false); 
+		b.setContentAreaFilled(false);
+	}
+
+	//ì„ì‹œ ë©”ì¸ë©”ì†Œë“œ
+	public static void main(String[] args) {
+		new SelectCharacter();
+	}
+}
+
