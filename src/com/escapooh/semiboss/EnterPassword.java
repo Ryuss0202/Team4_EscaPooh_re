@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.StyledEditorKit.BoldAction;
@@ -32,13 +33,13 @@ public class EnterPassword extends JPanel {
 	    ImageIcon answer_btn = new ImageIcon("images/correctAnswer.png");
 	    ImageIcon backpanel = new ImageIcon("images/back.png");
 	    
-	    ImageIcon fullLife_img1 = new ImageIcon("images/��Ʈ_ full 1.png") ;
-	    ImageIcon fullLife_img2 = new ImageIcon("images/��Ʈ_ full 1.png");
-	    ImageIcon fullLife_img3 = new ImageIcon("images/��Ʈ_ full 1.png");
+	    ImageIcon fullLife_img1 = new ImageIcon("images/하트_ full 1.png") ;
+	    ImageIcon fullLife_img2 = new ImageIcon("images/하트_ full 1.png");
+	    ImageIcon fullLife_img3 = new ImageIcon("images/하트_ full 1.png");
 	    ImageIcon lockdoor_img = new ImageIcon("images/Group 12 (1).png");
-	    ImageIcon empty1 = new ImageIcon("��Ʈ_empty.png");
-	    ImageIcon empty2 = new ImageIcon("��Ʈ_empty.png");
-	    ImageIcon empty3 = new ImageIcon("��Ʈ_empty.png");
+	    ImageIcon empty1 = new ImageIcon("하트_empty.png");
+	    ImageIcon empty2 = new ImageIcon("하트_empty.png");
+	    ImageIcon empty3 = new ImageIcon("하트_empty.png");
 	    //ImageIcon cantPass = new ImageIcon("images/GAME OVER.png");
 	    Graphics buffg;
 	    Image buffImage; 
@@ -103,6 +104,40 @@ public class EnterPassword extends JPanel {
 		answer.setFocusPainted(false);
 		answer.setContentAreaFilled(false);
 		
+
+		answer.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+		//seonjung
+//				if(a1.getText().equals("1")) {
+//					if(a2.getText().equals("2")) {
+//						if(a3.getText().equals("3")) {
+//							if(a4.getText().equals("4")) {
+//								JOptionPane.showMessageDialog(null, "자물쇠가 열렸습니다");
+//								
+//							}else {
+//								JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//								
+//								
+//							}
+//						}else {
+//							JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//							
+//						}
+//					}else {
+//						JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//						
+//					}
+//				}else {
+//					JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//					
+//				}
+			}
+		});
+		
+
 		JButton back = new JButton(backpanel);
 		
 		back.setBounds(643, 523, 140, 62);
@@ -114,9 +149,9 @@ public class EnterPassword extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// ��ư Ŭ�� �׽�Ʈ
+				// 버튼 클릭 테스트
 				if(a1.getText().equals("1")&&a2.getText().equals("2")&&a3.getText().equals("3")&&a4.getText().equals("4")) {
-					System.out.println("�����Դϴ�");
+					System.out.println("정답입니다");
 				}else {
 					life --;
 					if(life == 2) {

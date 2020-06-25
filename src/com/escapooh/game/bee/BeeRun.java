@@ -18,7 +18,13 @@ import javax.swing.JPanel;
 
 import com.escapooh.QuizPage.view.QuizLeftScreen2;
 import com.escapooh.character.SelectCharacter;
+//import com.escapooh.game.timer.TimerClass;
+//import com.escapooh.game.bee.model.vo.LifeNScore;
+import com.escapooh.game.timer.TimerClass2;
+import com.escapooh.prol.ChangePanel;
+
 //import com.escapooh.game.timer.TimerClass2;
+
 import com.escapooh.pooo.BeeRoom;
 import com.escapooh.pooo.Room22;
 import com.escapooh.prol.ChangePanel;
@@ -116,7 +122,7 @@ public class BeeRun extends JPanel implements KeyListener{
 
 		ChangePanel cp = new ChangePanel(jf, jp);
 		Room22 t = new Room22(jf);
-		cp.replacePanel(t); //∆–≥Œ ±≥√º
+		cp.replacePanel(t); //Ìå®ÎÑê ÍµêÏ≤¥
 		//System.exit(0);
 	}
 
@@ -129,10 +135,10 @@ public class BeeRun extends JPanel implements KeyListener{
 	public void Score(int score) {
 		YourScore += 100;
 
-		//»Æ¿ŒøÎ
+		//ÌôïÏù∏Ïö©
 		//System.out.println(YourScore);
 		if(YourScore == 6000) {
-			//¥Ÿ¿Ω¿∏∑Œ ≥—æÓ∞°æﬂ«‘.
+			//Îã§ÏùåÏúºÎ°ú ÎÑòÏñ¥Í∞ÄÏïºÌï®.
 			victory();
 		}
 
@@ -158,7 +164,7 @@ public class BeeRun extends JPanel implements KeyListener{
 		Image backImage = Toolkit.getDefaultToolkit().getImage("images/back_Bee.png");
 		g.drawImage(backImage, 0, 0, 1200, 800, this);
 
-		g.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 40));
+		g.setFont(new Font("ÎßëÏùÄ Í≥†Îîï", Font.BOLD, 40));
 		g.drawString("Score : " + YourScore, 900, 100);
 
 		for (int i = 0; i < sprites.size(); i++) {
