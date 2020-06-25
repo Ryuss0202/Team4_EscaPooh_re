@@ -44,6 +44,7 @@ public class PreviousPanel extends JPanel {
 
 				cp.replacePanel(t); //패널 교체
 				
+				
 			}
 		});
 		label.add(btnGame);
