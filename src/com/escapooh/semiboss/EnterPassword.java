@@ -84,7 +84,7 @@ public class EnterPassword extends JPanel {
 		emptylife1.setBounds(56, 6,87 ,94);
 		
 		JLabel life2 = new JLabel(fullLife_img2);
-		life2.setBounds(171, 6,87 ,94);
+		life2.setBounds(153, 6,87 ,94);
 		
 		
 
@@ -92,7 +92,7 @@ public class EnterPassword extends JPanel {
 		emptylife2.setBounds(56, 6,87 ,94);
 		
 		JLabel life3 = new JLabel(fullLife_img3);
-		life3.setBounds(230, 6,87 ,94);
+		life3.setBounds(243, 6,87 ,94);
 		
 		JLabel emptylife3= new JLabel(empty3);
 		emptylife3.setBounds(56, 6,87 ,94);
@@ -115,23 +115,23 @@ public class EnterPassword extends JPanel {
 //					if(a2.getText().equals("2")) {
 //						if(a3.getText().equals("3")) {
 //							if(a4.getText().equals("4")) {
-//								JOptionPane.showMessageDialog(null, "자물쇠가 열렸습니다");
+//								JOptionPane.showMessageDialog(null, "�옄臾쇱뇿媛� �뿴�졇�뒿�땲�떎");
 //								
 //							}else {
-//								JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//								JOptionPane.showMessageDialog(null, "�옄臾쇱뇿媛� �옞寃⑥엳�뒿�땲�떎");
 //								
 //								
 //							}
 //						}else {
-//							JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//							JOptionPane.showMessageDialog(null, "�옄臾쇱뇿媛� �옞寃⑥엳�뒿�땲�떎");
 //							
 //						}
 //					}else {
-//						JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//						JOptionPane.showMessageDialog(null, "�옄臾쇱뇿媛� �옞寃⑥엳�뒿�땲�떎");
 //						
 //					}
 //				}else {
-//					JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//					JOptionPane.showMessageDialog(null, "�옄臾쇱뇿媛� �옞寃⑥엳�뒿�땲�떎");
 //					
 //				}
 			}
@@ -149,9 +149,9 @@ public class EnterPassword extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// 버튼 클릭 테스트
+				// 踰꾪듉 �겢由� �뀒�뒪�듃
 				if(a1.getText().equals("1")&&a2.getText().equals("2")&&a3.getText().equals("3")&&a4.getText().equals("4")) {
-					System.out.println("정답입니다");
+					System.out.println("�젙�떟�엯�땲�떎");
 				}else {
 					life --;
 					if(life == 2) {
@@ -165,7 +165,7 @@ public class EnterPassword extends JPanel {
 						backLabel.add(a4);
 						backLabel.add(answer);
 						backLabel.add(back);
-						backLabel.add(emptylife1);
+						backLabel.add(emptylife3);
 						backLabel.add(life1);
 						backLabel.add(life2);
 						backLabel.add(life3);
@@ -195,7 +195,7 @@ public class EnterPassword extends JPanel {
 						jp.add(backLabel);
 						jf.add(jp);
 				    	
-					}else if(life ==0) {
+					}else if(life <0) {
 						life3.remove(life3);
 						life2.remove(life2);
 						life1.remove(life1);
