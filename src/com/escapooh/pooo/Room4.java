@@ -56,12 +56,12 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 //		    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
 //		    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
 		    
-		    Image  fullLife_img1 = new ImageIcon("images/하트_ full 1.png").getImage() ;
-		    Image   fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
-		    Image   fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
+		    Image  fullLife_img1 = new ImageIcon("images/heart_ full 1.png").getImage() ;
+		    Image   fullLife_img2 = new ImageIcon("images/heart_ full 1.png").getImage();
+		    Image   fullLife_img3 = new ImageIcon("images/heart_ full 1.png").getImage();
 //		    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
 		    Image   roomNum_img = new ImageIcon("images/4.png").getImage();
-		    Image empty = new ImageIcon("하트_empty.png").getImage();
+		    Image empty = new ImageIcon("heart_empty.png").getImage();
 		    Image leftDoor_img = new ImageIcon("images/doorLeft.png").getImage();
 		    Image buffImage; 
 		    Graphics buffg;
@@ -226,7 +226,7 @@ public class Room4 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			         }
 			         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
 			        	 ChangePanel cp = new ChangePanel(jf, jp);
-							Room23 t = new Room23(jf);
+							Room3 t = new Room3(jf);
 							cp.replacePanel(t); //패널 교체
 			        	
 			        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
