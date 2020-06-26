@@ -17,6 +17,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.StyledEditorKit.BoldAction;
 
+import com.escapooh.game.bee.BeeRun;
+import com.escapooh.pooo.BeeRoom;
+import com.escapooh.pooo.Room21;
+import com.escapooh.prol.ChangePanel;
+
 public class EnterPassword extends JPanel {
 
 	JFrame jf ; 
@@ -33,13 +38,13 @@ public class EnterPassword extends JPanel {
 	    ImageIcon answer_btn = new ImageIcon("images/correctAnswer.png");
 	    ImageIcon backpanel = new ImageIcon("images/back.png");
 	    
-	    ImageIcon fullLife_img1 = new ImageIcon("images/하트_ full 1.png") ;
-	    ImageIcon fullLife_img2 = new ImageIcon("images/하트_ full 1.png");
-	    ImageIcon fullLife_img3 = new ImageIcon("images/하트_ full 1.png");
+	    ImageIcon fullLife_img1 = new ImageIcon("images/��Ʈ_ full 1.png") ;
+	    ImageIcon fullLife_img2 = new ImageIcon("images/��Ʈ_ full 1.png");
+	    ImageIcon fullLife_img3 = new ImageIcon("images/��Ʈ_ full 1.png");
 	    ImageIcon lockdoor_img = new ImageIcon("images/Group 12 (1).png");
-	    ImageIcon empty1 = new ImageIcon("하트_empty.png");
-	    ImageIcon empty2 = new ImageIcon("하트_empty.png");
-	    ImageIcon empty3 = new ImageIcon("하트_empty.png");
+	    ImageIcon empty1 = new ImageIcon("��Ʈ_empty.png");
+	    ImageIcon empty2 = new ImageIcon("��Ʈ_empty.png");
+	    ImageIcon empty3 = new ImageIcon("��Ʈ_empty.png");
 	    //ImageIcon cantPass = new ImageIcon("images/GAME OVER.png");
 	    Graphics buffg;
 	    Image buffImage; 
@@ -115,23 +120,23 @@ public class EnterPassword extends JPanel {
 //					if(a2.getText().equals("2")) {
 //						if(a3.getText().equals("3")) {
 //							if(a4.getText().equals("4")) {
-//								JOptionPane.showMessageDialog(null, "자물쇠가 열렸습니다");
+//								JOptionPane.showMessageDialog(null, "");
 //								
 //							}else {
-//								JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//								JOptionPane.showMessageDialog(null, "");
 //								
 //								
 //							}
 //						}else {
-//							JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//							JOptionPane.showMessageDialog(null, "");
 //							
 //						}
 //					}else {
-//						JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//						JOptionPane.showMessageDialog(null, "");
 //						
 //					}
 //				}else {
-//					JOptionPane.showMessageDialog(null, "자물쇠가 잠겨있습니다");
+//					JOptionPane.showMessageDialog(null, "");
 //					
 //				}
 			}
@@ -149,9 +154,12 @@ public class EnterPassword extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// 버튼 클릭 테스트
+				// 
 				if(a1.getText().equals("1")&&a2.getText().equals("2")&&a3.getText().equals("3")&&a4.getText().equals("4")) {
-					System.out.println("정답입니다");
+					System.out.println("����");
+					ChangePanel cp = new ChangePanel(jf, jp);
+					BeeRun t= new BeeRun(jf);
+					cp.replacePanel(t); //�г� ��ü
 				}else {
 					life --;
 					if(life == 2) {
