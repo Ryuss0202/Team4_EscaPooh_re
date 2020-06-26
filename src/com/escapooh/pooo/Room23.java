@@ -14,10 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.escapooh.pooo.Hud;
 import com.escapooh.prol.ChangePanel;
 
-public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserver{
+public class Room23 extends JPanel implements KeyListener, Runnable, ImageObserver{
 
 	int f_width ;
 	 int f_height ;
@@ -42,7 +41,7 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 	   //private JTextField timeOP = new JTextField(6);
 	   
 	   private Hud hud; // 힌트창 클래스 입력
-	   private Room21 r21;
+	   private Room31 r31;
 	   
 	   
 	    Thread th;
@@ -59,7 +58,7 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 	    Image   fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
 	    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
 	    Image empty = new ImageIcon("하트_empty.png").getImage();
-	    Image hint1 = new ImageIcon("images/1.png").getImage();
+	    Image hint3 = new ImageIcon("images/3.png").getImage();
 	    Image cantPass = new ImageIcon("images/GAME OVER.png").getImage();
 	    
 	    Image buffImage; 
@@ -68,14 +67,14 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 	    
 	    
 	    
-	    public Room22(JFrame jf) {
+	    public Room23(JFrame jf) {
 	    	this.jf = jf;
 	    	jp = this;
 	    	
 	    	init();
 	    	start();
 
-        	//JFrame jf = new JFrame();
+       	//JFrame jf = new JFrame();
 			jf.setSize(1200, 800);
 			JPanel jp = new JPanel();
 			
@@ -119,7 +118,7 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 
 		public void init(){ 
 			//preInit();
-		      x = 180;
+		      x = 870;
 		      y = 300;
 		      f_width = 1200;
 		      f_height = 800;
@@ -159,6 +158,9 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 		         
 		         hud.quiz1pass = true;
 		         hud.quiz2pass = true;
+		         hud.quiz3pass = true;
+		         hud.quiz4pass = true;
+		         
 		         
 		         hud.draw(g);
 		      }
@@ -184,7 +186,7 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 		            buffg.drawImage( fullLife_img1, 75, 6, this);
 		            buffg.drawImage( fullLife_img2, 165, 6, this);
 		            buffg.drawImage( fullLife_img3, 255, 6, this);
-		            buffg.drawImage(hint1, 530, 300, this);
+		            buffg.drawImage(hint3, 530, 300, this);
 		            	
 //		            }else { bx = 0; }
 
@@ -220,17 +222,18 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 		         if( (x >= 880 && x <= 900) && (y >= 300 && y <= 400)) {
 //		        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
 		        	 //패널바꾸기 불러옴
-		        	 
-			        	ChangePanel cp = new ChangePanel(jf, jp);
-						Room21 r21 = new Room21(jf);
-						cp.replacePanel(r21); //패널 교체
+		        	 buffg.drawImage(cantPass, 200, 200, this);
+			        	
 						
 						
 		        	 
 		         }
 		         
 		         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
-		        	 buffg.drawImage(cantPass, 200, 200, this);
+		        	 
+		        	 ChangePanel cp = new ChangePanel(jf, jp);
+						Room31 r31 = new Room31(jf);
+						cp.replacePanel(r31); //패널 교체
 		         }		        	 
 		        	 
 		        	 //패널바꾸기 불러옴
@@ -260,7 +263,7 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 
 		          setFocusable(true);
 		          requestFocus();
-           
+          
 		         if(KeyUp == true) {
 		         if( y > 120 ) y -= player_Speed;
 		         //캐릭터가 보여지는 화면 위로 못 넘어가게 합니다.
@@ -337,6 +340,5 @@ public class Room22 extends JPanel implements KeyListener, Runnable, ImageObserv
 				// TODO Auto-generated method stub
 				return false;
 			}
-			
 	
 }

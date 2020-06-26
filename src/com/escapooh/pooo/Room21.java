@@ -122,7 +122,7 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 		      
 
 	
-		      player_Speed = 50; //유저 캐릭터 움직이는 속도 설정
+		      player_Speed = 3; //유저 캐릭터 움직이는 속도 설정
 		      
 		      hud = new Hud(); //힌트창 그리기
 		 }
@@ -144,7 +144,7 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 
 		         repaint(); 
 
-		         Thread.sleep(100);
+		         Thread.sleep(10);
 		         }
 		         }catch (Exception e){}
 		      }
@@ -267,7 +267,7 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 		         }
 
 		         if(KeyRight == true) {
-		         if ( x + Player_img.getWidth(null) < f_width - 170 ) x += player_Speed;
+		         if ( x + Player_img.getWidth(null) < f_width - 160 ) x += player_Speed;
 		         //캐릭터가 보여지는 화면 오른쪽으로 못 넘어가게 합니다.
 		         player_Status = 0;//이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
 		         }

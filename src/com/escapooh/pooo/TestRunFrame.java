@@ -39,6 +39,7 @@ public class TestRunFrame extends JFrame {
 	BeeRoom t = new BeeRoom(jf);
 //    Room2 t = new Room2(jf);
 //    Room4 t = new Room4(jf);
+//   Room31 t = new Room31(jf);
 	cp.replacePanel(t); //
 
 	//Room22 r22 = new Room22(jf);

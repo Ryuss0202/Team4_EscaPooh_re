@@ -52,7 +52,7 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 	    Toolkit tk = Toolkit.getDefaultToolkit();
 
 	    Image Player_img = new ImageIcon("images/pooh1.png").getImage(); ;
-	    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0); //배경이미지 설정
+	    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0);; //배경이미지 설정
 	    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
 	    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
 	    
@@ -121,7 +121,7 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 		      f_width = 1200;
 		      f_height = 800;
 		      
-		      player_Speed = 50; //유저 캐릭터 움직이는 속도 설정
+		      player_Speed = 3; //유저 캐릭터 움직이는 속도 설정
 		      
 		      hud = new Hud(); //힌트창 그리기
 		 }
@@ -143,7 +143,7 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 
 		         repaint(); 
 
-		         Thread.sleep(100);
+		         Thread.sleep(10);
 		         }
 		         }catch (Exception e){}
 		      }
