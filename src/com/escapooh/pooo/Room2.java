@@ -56,12 +56,12 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 		    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
 		    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
 		    
-		    Image  fullLife_img1 = new ImageIcon("images/하트_ full 1.png").getImage() ;
-		    Image   fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
-		    Image   fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
+		    Image  fullLife_img1 = new ImageIcon("images/heart_ full 1.png").getImage() ;
+		    Image   fullLife_img2 = new ImageIcon("images/heart_ full 1.png").getImage();
+		    Image   fullLife_img3 = new ImageIcon("images/heart_ full 1.png").getImage();
 		    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
 		    Image   roomNum_img = new ImageIcon("images/2.png").getImage();
-		    Image empty = new ImageIcon("하트_empty.png").getImage();
+		    Image empty = new ImageIcon("heart_empty.png").getImage();
 		    Image buffImage; 
 		    Graphics buffg;
 		    Graphics2D g2;
@@ -229,7 +229,7 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			        	// buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
 			        	 
 			        	    ChangePanel cp = new ChangePanel(jf, jp);
-							Room22 t = new Room22(jf);
+							Room1 t = new Room1(jf);
 							cp.replacePanel(t); //패널 교체
  			         }
 			      }
