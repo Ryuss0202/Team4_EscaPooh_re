@@ -15,10 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.escapooh.QuizPage.view.QuizRightScreen1;
-import com.escapooh.pooo.Hud;
 import com.escapooh.prol.ChangePanel;
+import com.escapooh.semiboss.EnterPassword;
 
-public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserver{
+public class Room31 extends JPanel implements KeyListener, Runnable, ImageObserver{
 
 	int f_width ;
 	 int f_height ;
@@ -58,7 +58,7 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 	    
 	    Image  fullLife_img1 = new ImageIcon("images/하트_ full 1.png").getImage() ;
 	    Image   fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
-	    Image   fullLife_img3 = new ImageIcon("images/하트_ full 1.png").getImage();
+	    Image   fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
 	    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
 	    Image empty = new ImageIcon("하트_empty.png").getImage();
 	    Image cantPass = new ImageIcon("images/GAME OVER.png").getImage();
@@ -68,7 +68,7 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 	    
 	    
 	    
-	    public Room21(JFrame jf) {
+	    public Room31(JFrame jf) {
 	    	this.jf = jf;
 	    	jp = this;
 	    	
@@ -115,7 +115,7 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 
 		public void init(){ 
 			//preInit();
-		      x = 200;
+		      x = 870;
 		      y = 300;
 		      f_width = 1200;
 		      f_height = 800;
@@ -157,6 +157,8 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 		         
 		         hud.quiz1pass = true;
 		         hud.quiz2pass = true;
+		         hud.quiz3pass = true;
+		         hud.quiz4pass = true;
 		         
 		         hud.draw(g);
 		      }
@@ -211,7 +213,9 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 					
 		         buffg.drawImage(Player_img, x, y, this);
 		         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
-		        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+		        	 ChangePanel cp = new ChangePanel(jf, jp);
+						EnterPassword t = new EnterPassword(jf);
+						cp.replacePanel(t); //패널 교체
 		         }
 		         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
 		        	 buffg.drawImage(cantPass, 200, 200, this);
@@ -223,11 +227,11 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 		        	
 		        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
 		         }else if((x >= 880 && x <= 1000) && (y >= 280&& y <= 330)) {
-		        	// buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+		        	 buffg.drawImage(cantPass, 200, 200, this);
 		        	 
-		        	 ChangePanel cp = new ChangePanel(jf, jp);
-						QuizRightScreen1 t = new QuizRightScreen1(jf);
-						cp.replacePanel(t); //패널 교체
+//		        	 ChangePanel cp = new ChangePanel(jf, jp);
+//						QuizRightScreen1 t = new QuizRightScreen1(jf);
+//						cp.replacePanel(t); //패널 교체
 		         }
 		      }
 		      

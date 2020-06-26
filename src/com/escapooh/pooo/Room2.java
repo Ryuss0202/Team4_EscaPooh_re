@@ -123,7 +123,7 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			      f_width = 1200;
 			      f_height = 800;
 
-			      player_Speed = 50; 
+			      player_Speed = 3; 
 			      
 			      hud = new Hud(); 
 			 }
@@ -145,7 +145,7 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 
 			         repaint(); 
 
-			         Thread.sleep(100);
+			         Thread.sleep(10);
 			         }
 			         }catch (Exception e){}
 			      }
@@ -270,7 +270,7 @@ public class Room2 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			         }
 
 			         if(KeyRight == true) {
-			         if ( x + Player_img.getWidth(null) < f_width - 170 ) x += player_Speed;
+			         if ( x + Player_img.getWidth(null) < f_width - 160 ) x += player_Speed;
 
 			         player_Status = 0;
 			         }

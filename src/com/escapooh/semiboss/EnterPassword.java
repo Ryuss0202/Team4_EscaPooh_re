@@ -17,6 +17,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.StyledEditorKit.BoldAction;
 
+import com.escapooh.game.bee.BeeRun;
+import com.escapooh.pooo.BeeRoom;
+import com.escapooh.pooo.Room21;
+import com.escapooh.prol.ChangePanel;
+
 public class EnterPassword extends JPanel {
 
 	JFrame jf ; 
@@ -115,23 +120,42 @@ public class EnterPassword extends JPanel {
 //					if(a2.getText().equals("2")) {
 //						if(a3.getText().equals("3")) {
 //							if(a4.getText().equals("4")) {
-//								JOptionPane.showMessageDialog(null, "�옄臾쇱뇿媛� �뿴�졇�뒿�땲�떎");
+
+//								JOptionPane.showMessageDialog(null, "占쎌얠깅욕占 占쎈였占쎌占쎈울옙뀐옙");
 //								
 //							}else {
-//								JOptionPane.showMessageDialog(null, "�옄臾쇱뇿媛� �옞寃⑥엳�뒿�땲�떎");
+//								JOptionPane.showMessageDialog(null, "占쎌얠깅욕占 占쎌野μ놂옙울옙뀐옙");
+
+//								JOptionPane.showMessageDialog(null, "");
+//								
+//							}else {
+//								JOptionPane.showMessageDialog(null, "");
+
 //								
 //								
 //							}
 //						}else {
-//							JOptionPane.showMessageDialog(null, "�옄臾쇱뇿媛� �옞寃⑥엳�뒿�땲�떎");
+
+//							JOptionPane.showMessageDialog(null, "占쎌얠깅욕占 占쎌野μ놂옙울옙뀐옙");
 //							
 //						}
 //					}else {
-//						JOptionPane.showMessageDialog(null, "�옄臾쇱뇿媛� �옞寃⑥엳�뒿�땲�떎");
+//						JOptionPane.showMessageDialog(null, "占쎌얠깅욕占 占쎌野μ놂옙울옙뀐옙");
 //						
 //					}
 //				}else {
-//					JOptionPane.showMessageDialog(null, "�옄臾쇱뇿媛� �옞寃⑥엳�뒿�땲�떎");
+//					JOptionPane.showMessageDialog(null, "占쎌얠깅욕占 占쎌野μ놂옙울옙뀐옙");
+
+//							JOptionPane.showMessageDialog(null, "");
+//							
+//						}
+//					}else {
+//						JOptionPane.showMessageDialog(null, "");
+//						
+//					}
+//				}else {
+//					JOptionPane.showMessageDialog(null, "");
+
 //					
 //				}
 			}
@@ -149,9 +173,18 @@ public class EnterPassword extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// 踰꾪듉 �겢由� �뀒�뒪�듃
+
+				// 甕곌쑵 占쎄깻깍옙 占쎈占쎈わ옙
 				if(a1.getText().equals("1")&&a2.getText().equals("2")&&a3.getText().equals("3")&&a4.getText().equals("4")) {
-					System.out.println("�젙�떟�엯�땲�떎");
+					System.out.println("占쎌占쎈占쎌�옙뀐옙");
+
+				// 
+				if(a1.getText().equals("1")&&a2.getText().equals("2")&&a3.getText().equals("3")&&a4.getText().equals("4")) {
+					System.out.println("정답");
+					ChangePanel cp = new ChangePanel(jf, jp);
+					BeeRun t= new BeeRun(jf);
+					cp.replacePanel(t); //패널 교체
+
 				}else {
 					life --;
 					if(life == 2) {

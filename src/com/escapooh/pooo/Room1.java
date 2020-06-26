@@ -127,7 +127,7 @@ public class Room1 extends JPanel  implements KeyListener, Runnable, ImageObserv
 			      f_width = 1200;
 			      f_height = 800;
 			      
-			      player_Speed = 50; 
+			      player_Speed = 3; 
 			      
 			      hud = new Hud(); 
 			 }
@@ -149,7 +149,7 @@ public class Room1 extends JPanel  implements KeyListener, Runnable, ImageObserv
 
 			         repaint(); 
 
-			         Thread.sleep(100);
+			         Thread.sleep(10);
 			         }
 			         }catch (Exception e){}
 			      }

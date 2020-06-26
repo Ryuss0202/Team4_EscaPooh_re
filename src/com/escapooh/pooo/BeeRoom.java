@@ -14,6 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.escapooh.game.bee.BeeRun;
+import com.escapooh.prol.ChangePanel;
+
 public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObserver {
 
 	   int f_width;
@@ -43,8 +46,8 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 	    Image empty = new ImageIcon("하트_empty.png").getImage();
 	    
 	    Image talkBox = new ImageIcon("images/talkBox2.png").getImage();
-	    Image talk1 = new ImageIcon("images/talk1.png").getImage();
-	    Image talk2 = new ImageIcon("images/talk2.png").getImage();
+	    Image talk1 = new ImageIcon("images/sayHi.png").getImage();
+	    Image talk2 = new ImageIcon("images/beeSay.png").getImage();
 	    
 	    Image buffImage; 
 	    Graphics buffg;
@@ -69,8 +72,8 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 //			JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
 //			door.setBounds(500,596,214 ,153);
 			
-			JLabel backLabel = new JLabel(new ImageIcon(BackGround_img));
-			backLabel.setBounds(0, 0, 1200, 800);
+//			JLabel backLabel = new JLabel(new ImageIcon(BackGround_img));
+//			backLabel.setBounds(0, 0, 1200, 800);
 			
 			JLabel life1= new JLabel(new ImageIcon(fullLife_img1));
 			life1.setBounds(56, 6,87 ,94);
@@ -100,9 +103,9 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 //			backLabel.add(Boss);
 			
 			
-			backLabel.add(life1);
-			backLabel.add(life2);
-			backLabel.add(life3);
+			jp.add(life1);
+			jp.add(life2);
+			jp.add(life3);
 			
 //			box.add(speech1);
 //			jp.add(box);
@@ -200,9 +203,9 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 		            buffg.drawImage(BackGround_img, 0, 0, this);
 //		            buffg.drawImage(lockdoor_img, 500, 48, this);
 //		            buffg.drawImage( OpenDoor_img, 500, 596, this);
-		            buffg.drawImage( fullLife_img1, 75, 6, this);
-		            buffg.drawImage( fullLife_img2, 165, 6, this);
-		            buffg.drawImage( fullLife_img3, 255, 6, this);
+//		            buffg.drawImage( fullLife_img1, 75, 6, this);
+//		            buffg.drawImage( fullLife_img2, 165, 6, this);
+//		            buffg.drawImage( fullLife_img3, 255, 6, this);
 //		            buffg.drawImage(boss, 400, 90, 409, 354, this);
 		            	
 //		            }else { bx = 0; }
@@ -217,8 +220,15 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 		    	  buffg.drawImage(talk1, 120, 130, 574, 285, this); 
 		    	  
 		    	  if(KeySpace || KeyEnter == true) {
-		    		  repaint();
-		    	  buffg.drawImage(talk2, 300, 500, 574, 285, this); 
+		    		  
+		    		  buffg.clearRect(120, 130, 574, 285);
+		    		  
+		    		  
+		    		  buffg.drawImage(talk2, 300, 500, 574, 285, this); 
+		    		  
+			        	ChangePanel cp = new ChangePanel(jf, jp);
+						BeeRun r21 = new BeeRun(jf);
+						cp.replacePanel(r21); //패널 교체
 		    	  }
 //		    	  JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
 //					ldoor.setBounds(500,48,214 ,153);
@@ -265,8 +275,7 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 		      
 		      public void KeyProcess(){
 
-		    	 setFocusable(true);
-				 requestFocus();
+		    	
 				
 				 
 				 

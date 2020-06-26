@@ -14,17 +14,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.escapooh.QuizPage.view.QuizRightScreen1;
-import com.escapooh.pooo.Hud;
 import com.escapooh.prol.ChangePanel;
 
-public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserver{
+public class Room23 extends JPanel implements KeyListener, Runnable, ImageObserver{
 
 	int f_width ;
 	 int f_height ;
 	   
-	 int x = 550; 
-	 int y = 700; 
+	 public int x = 550; 
+	 public int y = 700; 
 	 
 	   
 	   int[] cx ={0, 0, 0}; 
@@ -43,8 +41,7 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 	   //private JTextField timeOP = new JTextField(6);
 	   
 	   private Hud hud; // 힌트창 클래스 입력
-	   private Room22 r22;
-	   
+	   private Room31 r31;
 	   
 	   
 	    Thread th;
@@ -58,29 +55,31 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 	    
 	    Image  fullLife_img1 = new ImageIcon("images/하트_ full 1.png").getImage() ;
 	    Image   fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
-	    Image   fullLife_img3 = new ImageIcon("images/하트_ full 1.png").getImage();
+	    Image   fullLife_img3 = new ImageIcon("images/히트_ full 1.png").getImage();
 	    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
 	    Image empty = new ImageIcon("하트_empty.png").getImage();
+	    Image hint3 = new ImageIcon("images/3.png").getImage();
 	    Image cantPass = new ImageIcon("images/GAME OVER.png").getImage();
+	    
 	    Image buffImage; 
 	    Graphics buffg;
 	    Graphics2D g2;
 	    
 	    
 	    
-	    public Room21(JFrame jf) {
+	    public Room23(JFrame jf) {
 	    	this.jf = jf;
 	    	jp = this;
 	    	
 	    	init();
 	    	start();
 
-        	//JFrame jf = new JFrame();
+       	//JFrame jf = new JFrame();
 			jf.setSize(1200, 800);
 			JPanel jp = new JPanel();
 			
-			JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
-			ldoor.setBounds(500,48,214 ,153);
+//			JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
+//			ldoor.setBounds(500,48,214 ,153);
 			
 			JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
 			door.setBounds(500,596,214 ,153);
@@ -96,11 +95,15 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 			JLabel life3 = new JLabel(new ImageIcon(fullLife_img3));
 			life3.setBounds(230, 6,87 ,94);
 			
-	      	backLabel.add(ldoor);
+//			JLabel Hint1 = new JLabel(new ImageIcon(hint1));
+//			life3.setLocation(0, 0);
+			
+//	      	backLabel.add(ldoor);
 			backLabel.add(door);
 			backLabel.add(life1);
 			backLabel.add(life2);
 			backLabel.add(life3);
+//			backLabel.add(Hint1);
 			jp.add(backLabel);
 	    	
 	    	 setSize(f_width, f_height);
@@ -115,12 +118,10 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 
 		public void init(){ 
 			//preInit();
-		      x = 200;
+		      x = 870;
 		      y = 300;
 		      f_width = 1200;
 		      f_height = 800;
-		      
-
 	
 		      player_Speed = 3; //유저 캐릭터 움직이는 속도 설정
 		      
@@ -157,6 +158,9 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 		         
 		         hud.quiz1pass = true;
 		         hud.quiz2pass = true;
+		         hud.quiz3pass = true;
+		         hud.quiz4pass = true;
+		         
 		         
 		         hud.draw(g);
 		      }
@@ -177,11 +181,12 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 //		         if ( bx > - 3500){
 
 		            buffg.drawImage(BackGround_img, bx, 0, this);
-		            buffg.drawImage(lockdoor_img, 500, 48, this);
-		            buffg.drawImage( OpenDoor_img, 500, 596, this);
+//		            buffg.drawImage(lockdoor_img, 500, 48, this);
+//		            buffg.drawImage( OpenDoor_img, 500, 596, this);
 		            buffg.drawImage( fullLife_img1, 75, 6, this);
 		            buffg.drawImage( fullLife_img2, 165, 6, this);
 		            buffg.drawImage( fullLife_img3, 255, 6, this);
+		            buffg.drawImage(hint3, 530, 300, this);
 		            	
 //		            }else { bx = 0; }
 
@@ -190,45 +195,60 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 		
 		      public void Draw_Player(){ 
 
-		    	  JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
-					ldoor.setBounds(500,48,214 ,153);
+//		    	  JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
+//					ldoor.setBounds(500,48,214 ,153);
 					
-					JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
-					door.setBounds(500,596,214 ,153);
-					
-					JLabel backLabel = new JLabel(new ImageIcon(BackGround_img));
-					
-					JLabel life1= new JLabel(new ImageIcon(fullLife_img1));
-					life1.setBounds(56, 6,87 ,94);
-					
-					JLabel life2 = new JLabel(new ImageIcon(fullLife_img2));
-					life2.setBounds(171, 6,87 ,94);
-					
-					JLabel life3 = new JLabel(new ImageIcon(fullLife_img3));
-					life3.setBounds(230, 6,87 ,94);
+//					JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
+//					door.setBounds(500,596,214 ,153);
+//					
+//					JLabel backLabel = new JLabel(new ImageIcon(BackGround_img));
+//					
+//					JLabel life1= new JLabel(new ImageIcon(fullLife_img1));
+//					life1.setBounds(56, 6,87 ,94);
+//					
+//					JLabel life2 = new JLabel(new ImageIcon(fullLife_img2));
+//					life2.setBounds(171, 6,87 ,94);
+//					
+//					JLabel life3 = new JLabel(new ImageIcon(fullLife_img3));
+//					life3.setBounds(230, 6,87 ,94);
 					
 			
 					
 		         buffg.drawImage(Player_img, x, y, this);
-		         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
-		        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
-		         }
-		         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
+//		         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
+//		        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+//		         }
+		         
+		         if( (x >= 880 && x <= 900) && (y >= 300 && y <= 400)) {
+//		        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+		        	 //패널바꾸기 불러옴
 		        	 buffg.drawImage(cantPass, 200, 200, this);
+			        	
+						
+						
+		        	 
+		         }
+		         
+		         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
+		        	 
+		        	 ChangePanel cp = new ChangePanel(jf, jp);
+						Room31 r31 = new Room31(jf);
+						cp.replacePanel(r31); //패널 교체
+		         }		        	 
 		        	 
 		        	 //패널바꾸기 불러옴
 //		        	ChangePanel cp = new ChangePanel(jf, jp);
-//		        	Room22 r22 = new Room22(jf);
-//					cp.replacePanel(r22); //패널 교체
-		        	
-		        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
-		         }else if((x >= 880 && x <= 1000) && (y >= 280&& y <= 330)) {
-		        	// buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
-		        	 
-		        	 ChangePanel cp = new ChangePanel(jf, jp);
-						QuizRightScreen1 t = new QuizRightScreen1(jf);
-						cp.replacePanel(t); //패널 교체
-		         }
+//					QuizLeftScreen1 t = new QuizLeftScreen1(jf);
+//					cp.replacePanel(t); //패널 교체
+//		        	
+//		        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+//		         }else if((x >= 850 && x <= 1000) && (y >= 280&& y <= 330)) {
+//		        	// buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+//		        	 
+//		        	 ChangePanel cp = new ChangePanel(jf, jp);
+//						QuizRightScreen1 t = new QuizRightScreen1();
+//						cp.replacePanel(t); //패널 교체
+//		         }
 		      }
 		      
 		   
@@ -243,7 +263,7 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 
 		          setFocusable(true);
 		          requestFocus();
-           
+          
 		         if(KeyUp == true) {
 		         if( y > 120 ) y -= player_Speed;
 		         //캐릭터가 보여지는 화면 위로 못 넘어가게 합니다.
@@ -320,6 +340,5 @@ public class Room21 extends JPanel implements KeyListener, Runnable, ImageObserv
 				// TODO Auto-generated method stub
 				return false;
 			}
-			
 	
 }
