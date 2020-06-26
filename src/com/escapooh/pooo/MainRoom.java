@@ -60,7 +60,6 @@ public class MainRoom extends JPanel  implements KeyListener, Runnable, ImageObs
 	    Image fullLife_img2 = new ImageIcon("images/heart_ full 1.png").getImage();
 	    Image fullLife_img3 = new ImageIcon("images/heart_ full 1.png").getImage();
 	    Image lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
-	    Image roomNum_img = new ImageIcon("images/1.png").getImage();
 	    Image empty = new ImageIcon("heart_empty.png").getImage();
 	    Image buffImage; 
 	    Graphics buffg;

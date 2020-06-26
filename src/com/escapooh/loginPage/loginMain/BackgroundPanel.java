@@ -1,5 +1,6 @@
 package com.escapooh.loginPage.loginMain;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -39,9 +40,13 @@ public class BackgroundPanel extends JPanel	{
 
 
 		id = new JTextField(15);
+		Font font = new Font("sans serif",Font.BOLD, 28);
+		id.setFont(font);
 		id.setBounds(360, 360, 350, 40);
 
 		pwd = new JPasswordField(15);
+		Font font1 = new Font("sans serif",Font.BOLD, 28);
+		pwd.setFont(font1);
 		pwd.setBounds(360, 410, 350, 40);
 
 		ImageIcon login = new ImageIcon("background/login.png");

@@ -1,5 +1,6 @@
 package com.escapooh.QuizPage.view;
 
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,20 +25,25 @@ public class QuizLeftScreen2 extends JPanel {
 		jf.setSize(1200, 800);
 		
 		JPanel jp = new JPanel();
-		
-		JTextField as = new JTextField(15);
+
+		Font font1 = new Font("sans serif",Font.BOLD, 40);
+		JTextField as = new JTextField(20);
+		as.setFont(font1);
 		jp.add(as);
-		as.setBounds(560, 575, 90, 30);
+		as.setBounds(560, 535, 90, 60);
 		
-		
+		Font font = new Font("sans serif",Font.BOLD, 23);
 		JTextArea ta = new JTextArea(3,10);
 		ta.setText("당신은 꽃이있는 정원에 있습니다\n."
 				+ "해바라기, 장미, 나팔꽃과 달맞이꽃\n"
-				+ "해바라기는 새벽에 피어서 낮에지고 장미는해가 뜰때 피고 해가질때 집니다	\n"
-				+ "나팔꽃은 해가 질때 피고 해가 뜰때 집니다 달맞이꽃은 하루 온종일 피어있네요\n"
+				+ "해바라기는 새벽에 피어서 낮에지고 \n"
+				+ "장미는해가 뜰때 피고 해가질때 집니다\n"	
+				+ "나팔꽃은 해가 질때 피고 해가 뜰때 집니다\n "
+				+"달맞이꽃은 하루 온종일 피어있네요\n"
 				+ "지금은 밤 이네요 지금 피어있는 꽃은 몇개입니까?\n");
+		ta.setFont(font);
 		jp.add(ta);
-		ta.setBounds(375, 250, 450, 250);
+		ta.setBounds(375, 250, 520, 270);
 		ta.setEditable(false);
 	
 		Image back1 = new ImageIcon("background/QuizMainScreen.png").getImage().getScaledInstance(1200, 800, 0);

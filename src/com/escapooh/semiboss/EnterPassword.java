@@ -19,7 +19,7 @@ import javax.swing.text.StyledEditorKit.BoldAction;
 
 import com.escapooh.game.bee.BeeRun;
 import com.escapooh.pooo.BeeRoom;
-import com.escapooh.pooo.Room21;
+import com.escapooh.pooo.MainRoom;
 import com.escapooh.prol.ChangePanel;
 
 public class EnterPassword extends JPanel {
@@ -38,17 +38,17 @@ public class EnterPassword extends JPanel {
 	    ImageIcon answer_btn = new ImageIcon("images/correctAnswer.png");
 	    ImageIcon backpanel = new ImageIcon("images/back.png");
 	    
-	    ImageIcon fullLife_img1 = new ImageIcon("images/하트_ full 1.png") ;
-	    ImageIcon fullLife_img2 = new ImageIcon("images/하트_ full 1.png");
-	    ImageIcon fullLife_img3 = new ImageIcon("images/하트_ full 1.png");
+	    ImageIcon fullLife_img1 = new ImageIcon("images/heart_ full 1.png") ;
+	    ImageIcon fullLife_img2 = new ImageIcon("images/heart_ full 1.png");
+	    ImageIcon fullLife_img3 = new ImageIcon("images/heart_ full 1.png");
 	    ImageIcon lockdoor_img = new ImageIcon("images/Group 12 (1).png");
-	    ImageIcon empty1 = new ImageIcon("하트_empty.png");
-	    ImageIcon empty2 = new ImageIcon("하트_empty.png");
-	    ImageIcon empty3 = new ImageIcon("하트_empty.png");
+	    ImageIcon empty1 = new ImageIcon("heart_empty.png");
+	    ImageIcon empty2 = new ImageIcon("heart_empty.png");
+	    ImageIcon empty3 = new ImageIcon("heart_empty.png");
 	    //ImageIcon cantPass = new ImageIcon("images/GAME OVER.png");
 	    Graphics buffg;
 	    Image buffImage; 
-	    Font font = new Font("sans serif",Font.BOLD, 30);
+	    Font font = new Font("sans serif",Font.BOLD, 40);
 	   
 	   
 	    JTextField a1 = new JTextField(1);
@@ -89,15 +89,13 @@ public class EnterPassword extends JPanel {
 		emptylife1.setBounds(56, 6,87 ,94);
 		
 		JLabel life2 = new JLabel(fullLife_img2);
-		life2.setBounds(171, 6,87 ,94);
+		life2.setBounds(149, 6,87 ,94);
 		
-		
-
 		JLabel emptylife2 = new JLabel(empty2);
 		emptylife2.setBounds(56, 6,87 ,94);
 		
 		JLabel life3 = new JLabel(fullLife_img3);
-		life3.setBounds(230, 6,87 ,94);
+		life3.setBounds(238, 6,87 ,94);
 		
 		JLabel emptylife3= new JLabel(empty3);
 		emptylife3.setBounds(56, 6,87 ,94);
@@ -150,6 +148,16 @@ public class EnterPassword extends JPanel {
 		back.setFocusPainted(false);
 		back.setContentAreaFilled(false);
 		
+		back.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel cp = new ChangePanel(jf, jp);
+				MainRoom t= new MainRoom(jf);
+				cp.replacePanel(t); //패널 교체
+			}
+		});
+		
 		answer.addActionListener(new ActionListener() {
 			
 			@Override
@@ -173,12 +181,12 @@ public class EnterPassword extends JPanel {
 						backLabel.add(a4);
 						backLabel.add(answer);
 						backLabel.add(back);
+						backLabel.add(pwdsmall1);
+						backLabel.add(pwdbig1);
 						backLabel.add(emptylife1);
 						backLabel.add(life1);
 						backLabel.add(life2);
 						backLabel.add(life3);
-						backLabel.add(pwdbig1);
-						backLabel.add(pwdsmall1);
 						jp.add(backLabel);
 						jf.add(jp);
 						
@@ -195,11 +203,11 @@ public class EnterPassword extends JPanel {
 						backLabel.add(a4);
 						backLabel.add(answer);
 						backLabel.add(back);
+						backLabel.add(pwdsmall1);
+						backLabel.add(pwdbig1);
 						backLabel.add(life1);
 						backLabel.add(life2);
 						backLabel.add(life3);
-						backLabel.add(pwdbig1);
-						backLabel.add(pwdsmall1);
 						jp.add(backLabel);
 						jf.add(jp);
 				    	
@@ -218,11 +226,11 @@ public class EnterPassword extends JPanel {
 						backLabel.add(a4);
 						backLabel.add(answer);
 						backLabel.add(back);
+						backLabel.add(pwdsmall1);
+						backLabel.add(pwdbig1);
 						backLabel.add(life1);
 						backLabel.add(life2);
 						backLabel.add(life3);
-						backLabel.add(pwdbig1);
-						backLabel.add(pwdsmall1);
 						jp.add(backLabel);
 						jf.add(jp);
 					}else {
@@ -231,18 +239,20 @@ public class EnterPassword extends JPanel {
 				}
 			}
 		});
-		backLabel.add(ldoor);
+		
 		backLabel.add(a1);
 		backLabel.add(a2);
 		backLabel.add(a3);
 		backLabel.add(a4);
 		backLabel.add(answer);
 		backLabel.add(back);
+		backLabel.add(pwdsmall1);
+		backLabel.add(pwdbig1);
 		backLabel.add(life1);
 		backLabel.add(life2);
 		backLabel.add(life3);
-		backLabel.add(pwdbig1);
-		backLabel.add(pwdsmall1);
+		backLabel.add(ldoor);
+		
 		jp.add(backLabel);
 		jf.add(jp);
     	

@@ -102,13 +102,15 @@ public class Room1 extends JPanel  implements KeyListener, Runnable, ImageObserv
 				JLabel life3 = new JLabel(new ImageIcon(fullLife_img3));
 				life3.setBounds(230, 6,87 ,94);
 				
-				backLabel.add(RoomNum);
+				
 		      	backLabel.add(ldoor);
 				backLabel.add(door);
 				backLabel.add(life1);
 				backLabel.add(life2);
 				backLabel.add(life3);
+				backLabel.add(RoomNum);
 				jp.add(backLabel);
+				jf.add(jp);
 		    	
 		    	 setSize(f_width, f_height);
 		    	
@@ -122,7 +124,7 @@ public class Room1 extends JPanel  implements KeyListener, Runnable, ImageObserv
 
 			public void init(){ 
 				//preInit();
-			      x = 870;
+			      x = 850;
 			      y = 300;
 			      f_width = 1200;
 			      f_height = 800;
