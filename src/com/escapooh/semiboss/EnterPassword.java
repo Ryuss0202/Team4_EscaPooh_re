@@ -18,8 +18,10 @@ import javax.swing.JTextField;
 import javax.swing.text.StyledEditorKit.BoldAction;
 
 import com.escapooh.game.bee.BeeRun;
+import com.escapooh.game.bee.testFrame;
 import com.escapooh.pooo.BeeRoom;
 import com.escapooh.pooo.MainRoom;
+import com.escapooh.pooo.Room1;
 import com.escapooh.prol.ChangePanel;
 
 public class EnterPassword extends JPanel {
@@ -166,8 +168,10 @@ public class EnterPassword extends JPanel {
 				if(a1.getText().equals("1")&&a2.getText().equals("2")&&a3.getText().equals("3")&&a4.getText().equals("4")) {
 					System.out.println("정답");
 					ChangePanel cp = new ChangePanel(jf, jp);
-					BeeRun t= new BeeRun(jf);
+					testFrame t =  new testFrame(jf);
+					//BeeRun t= new BeeRun(jf);
 					cp.replacePanel(t); //패널 교체
+				
 				}else {
 					life --;
 					if(life == 2) {
