@@ -35,10 +35,18 @@ public class Slingshot extends Bullet{
 	@Override
 	public void handleCollision(Crush other){
 		if(other instanceof Bee) {
+			try {
 			run.endGame();
+			}catch (NullPointerException e) {
+				System.out.println("Ãæµ¹");
+			}finally {
+				System.exit(0);
+				
+			}
 		}
 
 	}
+
 
 
 }
