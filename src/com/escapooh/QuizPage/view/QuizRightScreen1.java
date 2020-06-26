@@ -1,5 +1,6 @@
 package com.escapooh.QuizPage.view;
 
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,11 +27,13 @@ public class QuizRightScreen1 extends JPanel {
 		
 		JPanel jp = new JPanel();
 		
-		JTextField as = new JTextField(15);
+		JTextField as = new JTextField(20);
+		Font font1 = new Font("sans serif",Font.BOLD, 40);
+		as.setFont(font1);
 		jp.add(as);
-		as.setBounds(560, 575, 90, 30);
+		as.setBounds(560, 535, 90, 60);
 		
-		
+		Font font = new Font("sans serif",Font.BOLD, 15);
 		JTextArea ta = new JTextArea(3,10);
 		ta.setText("버스에 5명이 있었습니다"
 				+ "다음정류장에서 6명이 타고 3명이 내리고\n"
@@ -38,8 +41,9 @@ public class QuizRightScreen1 extends JPanel {
 				+ "그다음 정류장에서 7명이 타고 4명이 내리고\n"
 				+ "그다음 정류장에서 5명이 내리고 1명이 탔습니다\n"
 				+ "지금 버스에 남아있는 사람은 몇명인가요?\n");
+		ta.setFont(font);
 		jp.add(ta);
-		ta.setBounds(375, 250, 450, 250);
+		ta.setBounds(375, 250, 520, 270);
 		ta.setEditable(false);
 	
 		Image back1 = new ImageIcon("background/QuizMainScreen.png").getImage().getScaledInstance(1200, 800, 0);

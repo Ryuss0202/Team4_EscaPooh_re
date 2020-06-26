@@ -1,5 +1,6 @@
 package com.escapooh.QuizPage.view;
 
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,17 +26,19 @@ public class QuizRightScreen2 extends JPanel{
 		
 		JPanel jp = new JPanel();
 		
-		
-		JTextField as = new JTextField(15);
+		Font font1 = new Font("sans serif",Font.BOLD, 40);
+		JTextField as = new JTextField(20);
+		as.setFont(font1);
 		jp.add(as);
-		as.setBounds(560, 575, 90, 30);
+		as.setBounds(560, 535, 90, 60);
 		
-		
+		Font font = new Font("sans serif",Font.BOLD, 20);
 		JTextArea ta = new JTextArea(3,10);
 		ta.setText("µµ∂Û¡ˆ ≤… + ∞≥≥™∏Æ≤… - ∫πº˛æ∆≤… = ?\n"
 				+ "≤…¿Ÿ¿∫ ∏µŒ ∏Ó¿Â¿‘¥œ¥Ÿ?");
+		ta.setFont(font);
 		jp.add(ta);
-		ta.setBounds(375, 250, 450, 250);
+		ta.setBounds(375, 250, 520, 270);
 		ta.setEditable(false);
 	
 		Image back1 = new ImageIcon("background/QuizMainScreen.png").getImage().getScaledInstance(1200, 800, 0);
