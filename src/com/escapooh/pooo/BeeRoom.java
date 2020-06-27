@@ -8,150 +8,133 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.ImageObserver;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.escapooh.QuizPage.view.QuizLeftScreen1;
+import com.escapooh.QuizPage.view.QuizLeftScreen2;
+import com.escapooh.QuizPage.view.QuizRightScreen1;
 import com.escapooh.game.bee.BeeRun;
 import com.escapooh.prol.ChangePanel;
+import com.escapooh.semiboss.EnterPassword;
+
 
 public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObserver {
-
-	   int f_width;
-	   int f_height;
 	
+	 int f_width ;
+	 int f_height ;
+	   
+	 int x = 550; 
+	 int y = 700; 
+	 
+	   
+	   
 	   boolean KeyUp = false;
 	   boolean KeyDown = false;
 	   boolean KeyLeft = false;
 	   boolean KeyRight = false;
-	   boolean KeyEnter = false;
 	   boolean KeySpace = false;
+	   boolean KeyEnter = false;
+	   int player_Speed; // 유저의 캐릭터가 움직이는 속도를 조절할 변수
+	   int player_Status = 0; 
 
 	   private JFrame jf;
 	   private JPanel jp;
+	   //private JTextField timeOP = new JTextField(6);
+	   
+	   private Hud hud; // 힌트창 클래스 입력
+	   
+	   
+	   int enterNum;
 	   
 	    Thread th;
 	    
 	    Toolkit tk = Toolkit.getDefaultToolkit();
 
-	    Image BackGround_img = new ImageIcon("images/beeBossBackground.png").getImage().getScaledInstance(1200, 800, 0);; //배경 이미지 설정
+	    Image Player_img = new ImageIcon("images/pooh1.png").getImage(); ;
+	    Image Boss = new ImageIcon("images/BigBee.png").getImage();
+	    Image bee = new ImageIcon("images/bee.png").getImage();
 	    
-	    Image  fullLife_img1 = new ImageIcon("images/하트_ full 1.png").getImage() ;
-	    Image   fullLife_img2 = new ImageIcon("images/하트_ full 1.png").getImage();
-	    Image   fullLife_img3 = new ImageIcon("images/하트_ full 1.png").getImage();
-//	    Image   lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
-//	    Image   roomNum_img = new ImageIcon("images/1.png").getImage();
-	    Image empty = new ImageIcon("하트_empty.png").getImage();
 	    
-	    Image talkBox = new ImageIcon("images/talkBox2.png").getImage();
-	    Image talk1 = new ImageIcon("images/sayHi.png").getImage();
-	    Image talk2 = new ImageIcon("images/beeSay.png").getImage();
+//	    Image BackGround_img = new ImageIcon("images/quizroom.png").getImage().getScaledInstance(1200, 800, 0);; //배경이미지 설정
+	    Image BackGround_img = new ImageIcon("images/beeRoom.png").getImage().getScaledInstance(1200, 800, 0);
 	    
+//	    Image  OpenDoor_img_alert = new ImageIcon("images/openDoorNotice.png").getImage();
+//	    Image  OpenDoor_img = new ImageIcon("images/Polygon 2.png").getImage();
+	    
+	    Image SpeechBox = new ImageIcon("images/talkBox90.png").getImage();
+	    Image Speech1 = new ImageIcon("images/sayHi.png").getImage();
+	    Image Speech2 = new ImageIcon("images/beeSay.png").getImage();
+	    Image GameOver = new ImageIcon("images/GAME OVER").getImage();
+	    Image EnterKey = new ImageIcon("images/enterKey.png").getImage();
+	    
+	    Image fullLife_img1 = new ImageIcon("images/heart_ full 1.png").getImage() ;
+	    Image fullLife_img2 = new ImageIcon("images/heart_ full 1.png").getImage();
+	    Image fullLife_img3 = new ImageIcon("images/heart_ full 1.png").getImage();
+	    
+//	    Image lockdoor_img = new ImageIcon("images/Group 12 (1).png").getImage();
+//	    Image roomNum_img = new ImageIcon("images/1.png").getImage();
+	    Image empty = new ImageIcon("heart_empty.png").getImage();
 	    Image buffImage; 
 	    Graphics buffg;
-	    Graphics2D g2;
+	    
+	    
 	    
 	    public BeeRoom(JFrame jf) {
 	    	this.jf = jf;
 	    	jp = this;
-//	   	 requestFocus();
-			this.setLayout(null);
-			this.setBounds(0, 0, 1200, 800);
 	    	
-			KeyProcess(); 
 	    	init();
 	    	start();
 
-//        	JFrame jf = new JFrame();
+//         	JFrame jf = new JFrame();
+			jf.setSize(1200, 800);
+			JPanel jp = new JPanel();
 			
-//			JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
-//			ldoor.setBounds(500,48,214 ,153);
-//			
-//			JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
-//			door.setBounds(500,596,214 ,153);
-			
-//			JLabel backLabel = new JLabel(new ImageIcon(BackGround_img));
-//			backLabel.setBounds(0, 0, 1200, 800);
+			JLabel backLabel = new JLabel(new ImageIcon(BackGround_img));
 			
 			JLabel life1= new JLabel(new ImageIcon(fullLife_img1));
 			life1.setBounds(56, 6,87 ,94);
 			
 			JLabel life2 = new JLabel(new ImageIcon(fullLife_img2));
-			life2.setBounds(171, 6,87 ,94);
+			life2.setBounds(143, 6,87 ,94);
 			
 			JLabel life3 = new JLabel(new ImageIcon(fullLife_img3));
-			life3.setBounds(290, 6,87 ,94);
-			
-//			JLabel box = new JLabel(new ImageIcon(talkBox));
-//			box.setBounds(95, 50, 996, 661);
-//			
-//			JLabel speech1 = new JLabel(new ImageIcon(talk1));
-//			speech1.setBounds(90, 130, 574, 285);
-//			
-//			JLabel speech2 = new JLabel(new ImageIcon(talk2));
-//			speech2.setBounds(90, 130, 574, 285);
-			
-//			JLabel Boss = new JLabel(new ImageIcon(boss));
-//			Boss.setBounds(300, 600, 100, 100);
+			life3.setBounds(230, 6,87 ,94);
 			
 //	      	backLabel.add(ldoor);
 //			backLabel.add(door);
-
-//			box.add(speech1);
-//			backLabel.add(Boss);
+			backLabel.add(life1);
+			backLabel.add(life2);
+			backLabel.add(life3);
+			jp.add(backLabel);
+	    	
+	    	setSize(f_width, f_height);
+	    	
+			setPreferredSize(new Dimension(1200, 800));
+			setLocation(0, 0);
+			setVisible(true);
 			
-			
-			jp.add(life1);
-			jp.add(life2);
-			jp.add(life3);
-			
-//			box.add(speech1);
-//			jp.add(box);
-//			jp.add(backLabel);
-			
-//			try {
-//				Thread.sleep(500);
-//			} catch (InterruptedException e) { 
-//				e.printStackTrace();
-//			}
-			
-			
-
-			
-//			try {
-//				Thread.sleep(5000);
-//			} catch (InterruptedException e) { 
-//				e.printStackTrace();
-//			}
-//			
-//			jp.remove(box);
-//			jp.repaint();
-			
-//			try {
-//				Thread.sleep(500);
-//			} catch (InterruptedException e) { 
-//				e.printStackTrace();
-//			}
-//			
-//			box.add(speech2);
-			
-			
-			
-//	    	setSize(f_width, f_height);
-//	    	
-//			setPreferredSize(new Dimension(1200, 800));
-//			setLocation(0, 0);
-//			setVisible(true);
 			
 		}
+	    
 
 		public void init(){ 
 			//preInit();
+		      x = 525;
+		      y = 480;
 		      f_width = 1200;
 		      f_height = 800;
 		      
+		      
+		      
+		      enterNum = 0;
+		      
+		      player_Speed = 50; //유저 캐릭터 움직이는 속도 설정
+		      
+		      hud = new Hud(); //힌트창 그리기
 		 }
 		      
 		public void start(){
@@ -181,79 +164,49 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 		         buffg = buffImage.getGraphics();
 
 		         update(g);
+		         hud.draw(g);
+		         
+		         setFocusable(true);
+		         requestFocus();
+		         
 		      }
 		      
 		      public void update(Graphics g){
 
 		         Draw_Background();	//배경 이미지 그리기 메소드 실행
 		         Draw_Player();	//플레이어를 그리는 메소드 이름 변경
-
+		         Draw_Speech();
 		         g.drawImage(buffImage, 0, 0, this); 
-		         
-		         
 		         
 		      }
 
 		      public void Draw_Background(){
 
 //		         buffg.clearRect(0, 0, f_width, f_height);
-		         
-//		         if ( bx > - 3500){
 
 		            buffg.drawImage(BackGround_img, 0, 0, this);
 //		            buffg.drawImage(lockdoor_img, 500, 48, this);
 //		            buffg.drawImage( OpenDoor_img, 500, 596, this);
-//		            buffg.drawImage( fullLife_img1, 75, 6, this);
-//		            buffg.drawImage( fullLife_img2, 165, 6, this);
-//		            buffg.drawImage( fullLife_img3, 255, 6, this);
-//		            buffg.drawImage(boss, 400, 90, 409, 354, this);
+		            buffg.drawImage( fullLife_img1, 75, 6, this);
+		            buffg.drawImage( fullLife_img2, 165, 6, this);
+		            buffg.drawImage( fullLife_img3, 255, 6, this);
 		            	
-//		            }else { bx = 0; }
+
 
 					
+
+//		            }else { bx = 0; }
+
 		      }
 		
 		      public void Draw_Player(){ 
-		    	  
-		    	  buffg.drawImage(talkBox, 100, 100, this);
-		    	  
-		    	  buffg.drawImage(talk1, 120, 130, 574, 285, this); 
-		    	  
-		    	  if(KeySpace || KeyEnter == true) {
-		    		  
-		    		  buffg.clearRect(120, 130, 574, 285);
-		    		  
-		    		  
-		    		  buffg.drawImage(talk2, 300, 500, 574, 285, this); 
-		    		  
-			        	ChangePanel cp = new ChangePanel(jf, jp);
-						BeeRun r21 = new BeeRun(jf);
-						cp.replacePanel(r21); //패널 교체
-		    	  }
-//		    	  JLabel ldoor = new JLabel(new ImageIcon(lockdoor_img));
-//					ldoor.setBounds(500,48,214 ,153);
-//					
-//					JLabel door = new JLabel(new ImageIcon(OpenDoor_img));
-//					door.setBounds(500,596,214 ,153);
-					
-//					JLabel backLabel = new JLabel(new ImageIcon(BackGround_img));
-//					
-//					JLabel life1= new JLabel(new ImageIcon(fullLife_img1));
-//					life1.setBounds(56, 6,87 ,94);
-//					
-//					JLabel life2 = new JLabel(new ImageIcon(fullLife_img2));
-//					life2.setBounds(171, 6,87 ,94);
-//					
-//					JLabel life3 = new JLabel(new ImageIcon(fullLife_img3));
-//					life3.setBounds(230, 6,87 ,94);
-					
-//					JLabel Boss = new JLabel(new ImageIcon(boss));
-//					Boss.setBounds(300, 600, 100, 100);
-			
-					
-//		         buffg.drawImage(Player_img, x, y, this);
-//		         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
-//		        	 buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+
+		         buffg.drawImage(Player_img, x, y, this);
+		         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
+		        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
+		        	 ChangePanel cp = new ChangePanel(jf, jp);
+						BeeRun t = new BeeRun(jf);
+						cp.replacePanel(t); //패널 교체
 		         }
 //		         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
 //		     		 //패널바꾸기 불러옴
@@ -269,52 +222,89 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 //					QuizRightScreen1 t = new QuizRightScreen1(jf);
 //					cp.replacePanel(t); //패널 교체
 //		         }
-//		      }
+		         
+		         buffg.drawImage(Boss, 470, 200, this);
+		         
+		         
+		      }
 		      
-		   
+		      public void Draw_Speech() {
+		    	  
+		    	  if( y < 400 ) {
+		    		  
+		    		  KeyUp = false;
+		    		  KeyDown = false;
+		    		  KeyRight = false;
+		    		  KeyDown = false;
+		    		  
+		    		  switch(enterNum) {
+		    		  case 0 : buffg.drawImage(SpeechBox, 100, 100, this);
+		    		  buffg.drawImage(Player_img, 130, 200, this);
+		    		  buffg.drawImage(Speech1, 300, 220, this);
+		    		  buffg.drawImage(EnterKey, 850, 300, this);
+		    		  break;
+		    		  case 1 : buffg.drawImage(SpeechBox, 100, 100, this);
+		    		  buffg.drawImage(bee, 900, 300, this);
+	    			  buffg.drawImage(Speech2, 200, 220, this);
+	    			  buffg.drawImage(EnterKey, 800, 480, this);
+	    			  break;
+		    		  case 2 : buffg.drawImage(SpeechBox, 100, 100, this);
+		    			  buffg.drawImage(EnterKey, 800, 480, this);break;
+		    		  case 3 : ChangePanel cp = new ChangePanel(jf, jp);
+					  BeeRun t = new BeeRun(jf);
+					  cp.replacePanel(t);
+		    		  
+		    		  }
+		    		  
+		    	  }
+		    	  
+		      }
 		      
 		      public void KeyProcess(){
 
-		    	
-				
-				 
-				 
-				 if(KeyEnter || KeySpace == true) {
-					 
-				 
-				 
-				 }
-				
-//		         if(KeyUp == true) {
-//		         if( y > 120 ) y -= player_Speed;
-//		         //캐릭터가 보여지는 화면 위로 못 넘어가게 합니다.
-//		         player_Status = 0;
-//		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
-//		         }
-//
-//		         if(KeyDown == true) {
-//		         if( y+ Player_img.getHeight(null) < f_height - 190 ) y += player_Speed;
-//		         //캐릭터가 보여지는 화면 아래로 못 넘어가게 합니다.
-//		         player_Status = 0;
-//		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
-//		         }
-//
-//		         if(KeyLeft == true) {
-//
-//		         if ( x > 160 ) x -= player_Speed;
-//		         //캐릭터가 보여지는 화면 왼쪽으로 못 넘어가게 합니다.
-//
-//		         player_Status = 0;
-//		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
-//		         }
-//
-//		         if(KeyRight == true) {
-//		         if ( x + Player_img.getWidth(null) < f_width - 170 ) x += player_Speed;
-//		         //캐릭터가 보여지는 화면 오른쪽으로 못 넘어가게 합니다.
-//
-//		         player_Status = 0;
-//		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
-//		         }
+
+		          setFocusable(true);
+		          requestFocus();
+		          
+		         if(KeyEnter == true || KeySpace == true) {
+		        	 enterNum++;
+		         }
+		          
+            
+		         if(KeyUp == true) {
+		         if( y > 120 ) y -= player_Speed;
+		         //캐릭터가 보여지는 화면 위로 못 넘어가게 합니다.
+		         player_Status = 0;
+		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
+		         }
+
+		         if(KeyDown == true) {
+		         if( y+ Player_img.getHeight(null) < f_height - 190 ) y += player_Speed;
+		         //캐릭터가 보여지는 화면 아래로 못 넘어가게 합니다.
+		         player_Status = 0;
+		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
+		         }
+
+		         if(KeyLeft == true) {
+
+//		         if ( x > 180 ) x -= player_Speed;
+
+		         if ( x > 160 ) x -= player_Speed;
+		         //캐릭터가 보여지는 화면 왼쪽으로 못 넘어가게 합니다.
+
+		         player_Status = 0;
+		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
+		         }
+
+		         if(KeyRight == true) {
+		         if ( x + Player_img.getWidth(null) < f_width - 170 ) x += player_Speed;
+		         //캐릭터가 보여지는 화면 오른쪽으로 못 넘어가게 합니다.
+
+		         player_Status = 0;
+		         //이동키가 눌려지면 플레이어 상태를 0으로 돌립니다.
+		         }
+		         
+
 		         
 		      }
 		      public void keyPressed(KeyEvent e){
@@ -356,10 +346,10 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 		         KeyRight = false;
 		         break;
 		         case KeyEvent.VK_ENTER :
-		         KeyEnter = true;
+		         KeyEnter = false;
 		         break;
 		         case KeyEvent.VK_SPACE :
-		         KeySpace = true;
+		         KeySpace = false;
 		         break;
 
 		         }
@@ -377,6 +367,8 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 				return false;
 			}
 			
-	
-	
-}
+
+		
+	}
+
+

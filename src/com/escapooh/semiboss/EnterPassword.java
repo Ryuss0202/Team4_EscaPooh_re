@@ -166,7 +166,7 @@ public class EnterPassword extends JPanel {
 				if(a1.getText().equals("1")&&a2.getText().equals("2")&&a3.getText().equals("3")&&a4.getText().equals("4")) {
 					System.out.println("정답");
 					ChangePanel cp = new ChangePanel(jf, jp);
-					BeeRun t= new BeeRun(jf);
+					BeeRoom t= new BeeRoom(jf);
 					cp.replacePanel(t); //패널 교체
 				}else {
 					life --;
