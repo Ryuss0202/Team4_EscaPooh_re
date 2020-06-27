@@ -1,16 +1,14 @@
 package com.escapooh.game.bee;
 
 import javax.swing.JFrame;
-
-import com.escapooh.pooo.TestRunFrame;
-
-public class testFrame {
+import javax.swing.JPanel;
 
 
-	public static void main(String[] args) {
+public class testFrame extends JPanel{
+	private JPanel jp;
+	private JFrame jf;
 
-		JFrame jf = new JFrame("testFrame");
-		jf.setBounds(0,0,1200,800);
+	public testFrame(JFrame jf) {
 
 		BeeRun g = new BeeRun(jf);
 		g.gameLoop();

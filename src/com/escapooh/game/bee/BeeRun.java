@@ -1,7 +1,6 @@
 package com.escapooh.game.bee;
 
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -16,11 +15,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.escapooh.QuizPage.view.QuizLeftScreen2;
-import com.escapooh.character.SelectCharacter;
-//import com.escapooh.game.timer.TimerClass2;
-import com.escapooh.pooo.BeeRoom;
-import com.escapooh.pooo.Room22;
+import com.escapooh.pooo.Room2;
+//import com.escapooh.pooo.Room22;
 import com.escapooh.prol.ChangePanel;
 
 public class BeeRun extends JPanel implements KeyListener{
@@ -41,7 +37,6 @@ public class BeeRun extends JPanel implements KeyListener{
 
 
    public BeeRun(JFrame jf) {
-      //frame.add(new TimerClass2(frame));
 
       this.jf = jf;
       jp = this;
@@ -50,38 +45,30 @@ public class BeeRun extends JPanel implements KeyListener{
       jf.setResizable(false);
       jf.setVisible(true);
       jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      //jp.setComponentZOrder(jp, 0);
 
-      this.jf = jf;
-       jp = this;
+    
 
       try {
 
          shotImage = ImageIO.read(new File("images/bullet.png"));
-
          shipImage = ImageIO.read(new File("images/slingshot.png"));
-
          alienImage = ImageIO.read(new File("images/bee.png"));
-
+         
       } catch (IOException e) {
-
          e.printStackTrace();
 
       }
 
       this.requestFocus();
-
       this.initSprites();
-
       this.addKeyListener(this);
-
+      
    }
 
 
 
    private void initSprites() {
-
-      // TODO Auto-generated method stub
-
       starship = new Slingshot(this, 
             shipImage, 370, 550);
 
@@ -111,14 +98,14 @@ public class BeeRun extends JPanel implements KeyListener{
    }
    public void endGame(){   
       ChangePanel cp = new ChangePanel(jf, jp);
-      Room22 t = new Room22(jf);
+      Room2 t = new Room2(jf);
       cp.replacePanel(t); 
       //System.exit(0);
    }
    public void victory() {
 
       ChangePanel cp = new ChangePanel(jf, jp);
-      Room22 t = new Room22(jf);
+      Room2 t = new Room2(jf);
       cp.replacePanel(t); //패널 교체
       //System.exit(0);
    }
@@ -174,9 +161,7 @@ public class BeeRun extends JPanel implements KeyListener{
 
    public void gameLoop() {
 
-
       while (running) {
-
          for (int i = 0; i < sprites.size(); i++) {
             Crush sprite = (Crush) sprites.get(i);
             sprite.move();
@@ -184,7 +169,6 @@ public class BeeRun extends JPanel implements KeyListener{
          }
 
          for (int p = 0; p < sprites.size(); p++) {
-
             for (int s = p + 1; s < sprites.size(); s++) {
                Crush me = (Crush) sprites.get(p);
                Crush other = (Crush) sprites.get(s);
@@ -194,7 +178,6 @@ public class BeeRun extends JPanel implements KeyListener{
                   me.handleCollision(other);
                   other.handleCollision(me);
                   }catch (Exception e) {
-                     // TODO: handle exception
                      endGame();
                   }
                }
