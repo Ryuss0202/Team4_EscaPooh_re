@@ -13,7 +13,6 @@ public class testFrame extends JPanel{
 		BeeRun g = new BeeRun(jf);
 		g.gameLoop();
 		
-		jf.add(g);
 		
 		jf.setVisible(true);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
