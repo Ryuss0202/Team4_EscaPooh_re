@@ -156,7 +156,7 @@ public class EnterPassword extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel cp = new ChangePanel(jf, jp);
 				MainRoom t= new MainRoom(jf);
-				cp.replacePanel(t); //ÆÐ³Î ±³Ã¼
+				cp.replacePanel(t); 
 			}
 		});
 		
@@ -169,12 +169,12 @@ public class EnterPassword extends JPanel {
 					System.out.println("Á¤´ä");
 					ChangePanel cp = new ChangePanel(jf, jp);
 
-					testFrame t =  new testFrame(jf);
+					//testFrame t =  new testFrame(jf);
 					//BeeRun t= new BeeRun(jf);
 
-					BeeRoom t= new BeeRoom(jf);
+					BeeRoom t = new BeeRoom(jf);
 
-					cp.replacePanel(t); //ÆÐ³Î ±³Ã¼
+					cp.replacePanel(t); 
 				
 				}else {
 					life --;
