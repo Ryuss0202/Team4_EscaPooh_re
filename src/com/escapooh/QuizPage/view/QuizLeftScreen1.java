@@ -9,6 +9,7 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.TextListener;
+import java.util.Random;
 import java.util.Scanner;
 
 import javax.swing.ImageIcon;
@@ -37,6 +38,24 @@ public class QuizLeftScreen1 extends JPanel	 {
 		jp.add(as);
 		as.setBounds(560, 535, 90, 60);
 		Font font = new Font("sans serif",Font.BOLD, 33);
+		
+//		seon jung	
+//		String[] sarray= new String[3];
+//		sarray[0] =  "Random string test1";
+//		sarray[1] =  "Random string test2";
+//		sarray[2] =  "Random string test3";
+//		for(int i = 0; i<3; i++) {
+//			int s = (int)(Math.random() * sarray.length);
+//		}
+//		Random r = new Random();
+//		String sarrayText = sarrayText[(int) (Math.random() * sarray.length)];
+//
+//		
+//		for(int i = 0; i < 3; i++) {
+//			int sarrayIndex = r.nextInt(sarray.length);
+//		}
+		
+		
 		JTextArea ta = new JTextArea(3,10);
 		ta.setText("인기를 끌었던 드라마로 \n" + "80,90년대 이야기를 담아내었고\n" + "3개의 시리즈까지 나온 \n" +"이 드라마제목에 들어가는\n"+ "첫 번째 숫자는 무엇인가요?");
 		ta.setFont(font);
