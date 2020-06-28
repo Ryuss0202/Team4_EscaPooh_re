@@ -19,8 +19,13 @@ public class TimerClass2 extends JPanel{
 
 	static String timerBuffer; 
 
+	private JFrame jf;
+	private JPanel jp;
 
-	public TimerClass2(JFrame jf) {
+	public TimerClass2(JFrame jf, JPanel panel) {
+		this.jf = jf;
+		this.jp = jp;
+		
 		TimerTask task = new TimerTask() {
 			@Override
 			public void run() {
@@ -35,6 +40,7 @@ public class TimerClass2 extends JPanel{
 						e.printStackTrace();
 					}
 				}
+				
 			}
 		};
 		Timer timer = new Timer();
