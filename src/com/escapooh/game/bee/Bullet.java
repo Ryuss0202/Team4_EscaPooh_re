@@ -20,14 +20,14 @@ public class Bullet extends Crush{
 	public void move() {
 		super.move();
 		if(y < -100) {
-			bee.removeSprite(this);
+			bee.removeSling(this);
 		}
 	}
 	@Override
 	public void handleCollision(Crush other) {
 		if(other instanceof Bee) {
-			bee.removeSprite(this);
-			bee.removeSprite(other);
+			bee.removeSling(this);
+			bee.removeSling(other);
 			bee.Score(0);
 		}
 	}

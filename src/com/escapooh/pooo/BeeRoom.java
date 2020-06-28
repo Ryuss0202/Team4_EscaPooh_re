@@ -17,6 +17,7 @@ import com.escapooh.QuizPage.view.QuizLeftScreen1;
 import com.escapooh.QuizPage.view.QuizLeftScreen2;
 import com.escapooh.QuizPage.view.QuizRightScreen1;
 import com.escapooh.game.bee.BeeRun;
+import com.escapooh.game.bee.testFrame;
 import com.escapooh.prol.ChangePanel;
 import com.escapooh.semiboss.EnterPassword;
 
@@ -204,9 +205,12 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 		         buffg.drawImage(Player_img, x, y, this);
 		         if( (x >= 500 && x <= 600) && (y >= 100 && y <= 180)) {
 		        	 //buffg.drawImage(OpenDoor_img_alert, 200, 200, this);
-		        	 ChangePanel cp = new ChangePanel(jf, jp);
-						BeeRun t = new BeeRun(jf);
-						cp.replacePanel(t); //패널 교체
+//		        	 ChangePanel cp = new ChangePanel(jf, jp);
+//						BeeRun t = new BeeRun(jf);
+//						cp.replacePanel(t); //패널 교체
+		        	 
+		        	new testFrame();
+		        
 		         }
 //		         else if((x >= -50 && x <= 170) && (y >= 280 && y <= 330)) {
 //		     		 //패널바꾸기 불러옴
@@ -250,9 +254,13 @@ public class BeeRoom extends JPanel  implements KeyListener, Runnable, ImageObse
 	    			  break;
 		    		  case 2 : buffg.drawImage(SpeechBox, 100, 100, this);
 		    			  buffg.drawImage(EnterKey, 800, 480, this);break;
-		    		  case 3 : ChangePanel cp = new ChangePanel(jf, jp);
-					  BeeRun t = new BeeRun(jf);
-					  cp.replacePanel(t);
+		    		  case 3 : 
+//		    			  ChangePanel cp = new ChangePanel(jf, jp);
+//					  BeeRun t = new BeeRun();
+//					  cp.replacePanel(t);
+		    			  this.remove(jf);
+		    			  this.remove(jp);
+		    			  new testFrame();
 		    		  
 		    		  }
 		    		  

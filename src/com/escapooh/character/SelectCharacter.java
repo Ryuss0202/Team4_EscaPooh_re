@@ -18,14 +18,14 @@
 //
 //
 //public class SelectCharacter extends JPanel{
-//	//메인 프레임
+//	//硫붿씤 �봽�젅�엫
 //	private MainFrame mf = new MainFrame();
 //
-//	//메인 패널
+//	//硫붿씤 �뙣�꼸
 //
 //	private JPanel panel = new JPanel();
 //
-//	//이미지 아이콘
+//	//�씠誘몄� �븘�씠肄�
 //	private ImageIcon selectButton = new ImageIcon("images/selectButton.png");
 //	private ImageIcon selectedButton = new ImageIcon("images/selectButton2.png");
 //
@@ -41,13 +41,13 @@
 //	private JLabel label = new JLabel(new ImageIcon(BG));
 //
 //
-//	//선택버튼
+//	//�꽑�깮踰꾪듉
 //	private JButton select = new JButton();
 //
 //	public SelectCharacter() {
-//		System.out.println("실행중");
+//		System.out.println("�떎�뻾以�");
 //
-//		//버튼
+//		//踰꾪듉
 //		button(SLTpooh);
 //		button(SLTpiglet);
 //		button(SLTtigger);
@@ -66,7 +66,7 @@
 //
 //			@Override
 //			public void actionPerformed(ActionEvent e) {
-//				System.out.println("푸가 선택되었습니다.");
+//				System.out.println("�뫖媛� �꽑�깮�릺�뿀�뒿�땲�떎.");
 //			}
 //		});
 //
@@ -74,25 +74,25 @@
 //
 //			@Override
 //			public void actionPerformed(ActionEvent e) {
-//				System.out.println("피글렛이 선택되었습니다.");
+//				System.out.println("�뵾湲��젢�씠 �꽑�깮�릺�뿀�뒿�땲�떎.");
 //			}
 //		});
 //		SLTtigger.addActionListener(new ActionListener() {
 //
 //			@Override
 //			public void actionPerformed(ActionEvent e) {
-//				System.out.println("티거가 선택되었습니다.");
+//				System.out.println("�떚嫄곌� �꽑�깮�릺�뿀�뒿�땲�떎.");
 //			}
 //		});
 //
 //
-//		//버튼
+//		//踰꾪듉
 //		select.setPressedIcon(selectedButton);
 //		select.addActionListener(new ActionListener() {
 //
 //			@Override
 //			public void actionPerformed(ActionEvent e) {
-//				System.out.println("게임이 시작됩니다.");
+//				System.out.println("寃뚯엫�씠 �떆�옉�맗�땲�떎.");
 //			}
 //		});
 //		select.setIcon(selectButton);
@@ -106,8 +106,8 @@
 //		label.setBounds(0, 0, 1200, 800);
 //
 //
-//		//확인용
-//		//패널 생성되어 있음.
+//		//�솗�씤�슜
+//		//�뙣�꼸 �깮�꽦�릺�뼱 �엳�쓬.
 //		//panel.add();
 //
 //		mf.setBounds(0,0,1200,800);
@@ -136,7 +136,7 @@
 //		b.setContentAreaFilled(false);
 //	}
 //
-//	//임시 메인메소드
+//	//�엫�떆 硫붿씤硫붿냼�뱶
 //	public static void main(String[] args) {
 //		new SelectCharacter();
 //	}
@@ -157,14 +157,10 @@ import javax.swing.JPanel;
 
 
 public class SelectCharacter extends JPanel{
-	//메인 프레임
-	private JFrame mf;
 
-	//메인 패널
 
 	private JPanel panel = new JPanel();
 
-	//이미지 아이콘
 	private ImageIcon selectButton = new ImageIcon("images/selectButton.png");
 	private ImageIcon selectedButton = new ImageIcon("images/selectButton2.png");
 
@@ -179,14 +175,12 @@ public class SelectCharacter extends JPanel{
 
 	private JLabel label = new JLabel(new ImageIcon(BG));
 
-
-	//선택버튼
+	private JFrame mf = new JFrame();
 	private JButton select = new JButton();
 
 	public SelectCharacter() {
-		System.out.println("실행중");
+		System.out.println("start");
 
-		//버튼
 		button(SLTpooh);
 		button(SLTpiglet);
 		button(SLTtigger);
@@ -205,7 +199,7 @@ public class SelectCharacter extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("푸가 선택되었습니다.");
+				System.out.println("pooh.");
 			}
 		});
 
@@ -213,25 +207,24 @@ public class SelectCharacter extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("피글렛이 선택되었습니다.");
+				System.out.println("piglet.");
 			}
 		});
 		SLTtigger.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("티거가 선택되었습니다.");
+				System.out.println("tigger.");
 			}
 		});
 
 
-		//버튼
 		select.setPressedIcon(selectedButton);
 		select.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("게임이 시작됩니다.");
+				System.out.println("select.");
 			}
 		});
 		select.setIcon(selectButton);
@@ -245,8 +238,6 @@ public class SelectCharacter extends JPanel{
 		label.setBounds(0, 0, 1200, 800);
 
 
-		//확인용
-		//패널 생성되어 있음.
 		//panel.add();
 
 		mf.setBounds(0,0,1200,800);
@@ -275,7 +266,6 @@ public class SelectCharacter extends JPanel{
 		b.setContentAreaFilled(false);
 	}
 
-	//임시 메인메소드
 	public static void main(String[] args) {
 		new SelectCharacter();
 	}

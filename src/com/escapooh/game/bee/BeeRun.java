@@ -1,9 +1,12 @@
 package com.escapooh.game.bee;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -12,245 +15,260 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import com.escapooh.pooo.Room2;
+import com.escapooh.pooo.MainRoom;
 //import com.escapooh.pooo.Room22;
 import com.escapooh.prol.ChangePanel;
 
 public class BeeRun extends JPanel implements KeyListener{
 
 
-   private JFrame jf;
-   private JPanel jp;
-   private boolean running = true;
+	private JFrame jf;
+	private JPanel jp;
+	private boolean running = true;
 
-   private ArrayList sprites = new ArrayList();
-   private Crush starship;
+	private ArrayList beebee = new ArrayList();
+	private Crush sling;
 
-   private BufferedImage alienImage;
-   private BufferedImage shotImage;
-   private BufferedImage shipImage;
+	private BufferedImage beeImage;
+	private BufferedImage shotImage;
+	private BufferedImage ssImage;
+	private BufferedImage Bimg;
 
-   private int YourScore = 0;
+	private int YourScore = 0;
 
 
-   public BeeRun(JFrame jf) {
+	public BeeRun(JFrame jf) {
+		this.jf = jf;
+		jp = this;
+		JButton jb = new JButton();
+		jb.setBorderPainted(false);
+		jb.setFocusPainted(false);
+		jb.setContentAreaFilled(false);
+		jb.setBounds(550, 600, 200, 126);
+		jb.addActionListener(new ActionListener() {
 
-      this.jf = jf;
-      jp = this;
-      jf.setSize(1200, 800);
-      jf.add(this);
-      jf.setResizable(false);
-      jf.setVisible(true);
-      jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      //jp.setComponentZOrder(jp, 0);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameLoop();
 
-    
+			}
+		});
+		add(jb);
+		JPanel jp = new JPanel();
+		jf.setSize(1200, 800);
+		jf.add(this);
+		jf.setResizable(false);
+		jf.setVisible(true);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(1200, 800));
+		setLocation(0, 0);
+		setVisible(true);
+		add(jp);
 
-      try {
+		try {
 
-         shotImage = ImageIO.read(new File("images/bullet.png"));
-         shipImage = ImageIO.read(new File("images/slingshot.png"));
-         alienImage = ImageIO.read(new File("images/bee.png"));
-         
-      } catch (IOException e) {
-         e.printStackTrace();
+			shotImage = ImageIO.read(new File("images/bullet.png"));
+			ssImage = ImageIO.read(new File("images/slingshot.png"));
+			beeImage = ImageIO.read(new File("images/bee.png"));
+			Bimg = ImageIO.read(new File("images/gameStrartButton.png"));
 
-      }
+		} catch (IOException e) {
 
-      this.requestFocus();
-      this.initSprites();
-      this.addKeyListener(this);
-      
-   }
+			e.printStackTrace();
 
+		}
 
+		this.requestFocus();
+		this.initSling();
+		this.addKeyListener(this);
+	
+	}
 
-   private void initSprites() {
-      starship = new Slingshot(this, 
-            shipImage, 370, 550);
 
-      this.sprites.add(starship);
 
+	private void initSling() {
 
+		sling = new Slingshot(this, 
+				ssImage, 370, 550);
 
-      for (int y = 0; y < 5; y++) {
+		this.beebee.add(sling);
 
-         for (int x = 0; x < 12; x++) {
+		for (int y = 0; y < 5; y++) {
 
-            Bee alien = new Bee(this, 
-                  alienImage,
-                  100 + (x * 50), (50) + y * 30);
+			for (int x = 0; x < 12; x++) {
 
-            sprites.add(alien);
+				Bee beeb = new Bee(this, 
+						beeImage,
+						100 + (x * 100), (50) + y * 30);
 
-         }
+				beebee.add(beeb);
 
-      }
+			}
 
-   }
+		}
 
-   public void startGame(){
-      sprites.clear();
-      initSprites();   
-   }
-   public void endGame(){   
-      ChangePanel cp = new ChangePanel(jf, jp);
-      Room2 t = new Room2(jf);
-      cp.replacePanel(t); 
-      //System.exit(0);
-   }
-   public void victory() {
+	}
 
-      ChangePanel cp = new ChangePanel(jf, jp);
-      Room2 t = new Room2(jf);
-      cp.replacePanel(t); //패널 교체
-      //System.exit(0);
-   }
+	public void startGame(){
+		beebee.clear();
+		initSling();	
+	}
+	public void endGame(){	
+		beebee.clear();
+		initSling();
+		ChangePanel cp = new ChangePanel(jf, jp);
+		MainRoom t = new MainRoom(jf);
+		cp.replacePanel(t);
+	}
+	public void victory() {
 
-   public void removeSprite(Crush sprite) {
+		ChangePanel cp = new ChangePanel(jf, jp);
+		GameOver2 t = new GameOver2(jf);
+		cp.replacePanel(t); 
+		//System.exit(0);
+	}
 
-      sprites.remove(sprite);   
+	public void removeSling(Crush sling) {
 
-   }
+		beebee.remove(sling);	
 
-   public void Score(int score) {
-      YourScore += 100;
+	}
 
-      //확인용
-      //System.out.println(YourScore);
-      if(YourScore == 6000) {
-         //다음으로 넘어가야함.
-         victory();
-      }
+	public void Score(int score) {
+		YourScore += 100;
 
-   }
+		//System.out.println(YourScore);
+		if(YourScore == 6000) {
+			victory();
+		}
 
+	}
 
-   public void fire() {
 
-      Bullet shot = new Bullet(this,
-            shotImage,
+	public void fire() {
 
-            starship.getX() + 10, starship.getY() - 30);
+		Bullet shot = new Bullet(this,
+				shotImage,
 
-      sprites.add(shot);
+				sling.getX() + 10, sling.getY() - 30);
 
-   }
+		beebee.add(shot);
 
-   @Override
-   public void paint(Graphics g) {
-      super.paint(g);
+	}
 
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
 
-      Image backImage = Toolkit.getDefaultToolkit().getImage("images/back_Bee.png");
-      g.drawImage(backImage, 0, 0, 1200, 800, this);
 
-      g.setFont(new Font("맑은 고딕", Font.BOLD, 40));
-      g.drawString("Score : " + YourScore, 900, 100);
+		Image backImage = Toolkit.getDefaultToolkit().getImage("images/back_Bee.png");
+		g.drawImage(backImage, 0, 0, 1200, 800, this);
 
-      for (int i = 0; i < sprites.size(); i++) {
+		g.setFont(new Font("Serif", Font.BOLD, 40));
+		g.drawString("Score : " + YourScore, 900, 100);
 
-         Crush sprite = (Crush) sprites.get(i);
+		for (int i = 0; i < beebee.size(); i++) {
 
-         sprite.draw(g);
-      }
-   }
+			Crush sprite = (Crush) beebee.get(i);
 
-   public void gameLoop() {
+			sprite.draw(g);
+		}
+	}
 
-      while (running) {
-         for (int i = 0; i < sprites.size(); i++) {
-            Crush sprite = (Crush) sprites.get(i);
-            sprite.move();
+	public void gameLoop() {
 
-         }
+		while (running) {
 
-         for (int p = 0; p < sprites.size(); p++) {
-            for (int s = p + 1; s < sprites.size(); s++) {
-               Crush me = (Crush) sprites.get(p);
-               Crush other = (Crush) sprites.get(s);
+			for (int i = 0; i < beebee.size(); i++) {
+				Crush sling = (Crush) beebee.get(i);
+				sling.move();
 
-               if (me.checkCollision(other)) {
-                  try {
-                  me.handleCollision(other);
-                  other.handleCollision(me);
-                  }catch (Exception e) {
-                     endGame();
-                  }
-               }
-            }
-         }
-         repaint();
+			}
 
-         try {
-            Thread.sleep(100);
-         } catch (Exception e) {
-         }
-      }
+			for (int p = 0; p < beebee.size(); p++) {
 
-   }
+				for (int s = p + 1; s < beebee.size(); s++) {
+					Crush me = (Crush) beebee.get(p);
+					Crush other = (Crush) beebee.get(s);
 
-   @Override
+					if (me.checkCollision(other)) {
+						try {
+							me.handleCollision(other);
+							other.handleCollision(me);
+						}catch (Exception e) {
+							endGame();
+						}
+					}
+				}
+				repaint();
+			}
+			try {
+				Thread.sleep(80);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
-   public void keyPressed(KeyEvent e) {
 
-      if (e.getKeyCode() == KeyEvent.VK_LEFT)
+	@Override
 
-         starship.setDx(-3);
+	public void keyPressed(KeyEvent e) {
 
-      if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
 
-         starship.setDx(+3);
+			sling.setDx(-3);
 
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 
-      if (e.getKeyCode() == KeyEvent.VK_UP)
+			sling.setDx(+3);
 
-         starship.setDy(-3);
 
-      if (e.getKeyCode() == KeyEvent.VK_DOWN)
+		if (e.getKeyCode() == KeyEvent.VK_UP)
 
-         starship.setDy(+3);
+			sling.setDy(-20);
 
-      if (e.getKeyCode() == KeyEvent.VK_SPACE)
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
 
-         fire();   
-   }
+			sling.setDy(+20);
 
-   @Override
-   public void keyReleased(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE)
 
-      if (e.getKeyCode() == KeyEvent.VK_LEFT)
+			fire();	
+	}
 
-         starship.setDx(0);
+	@Override
+	public void keyReleased(KeyEvent e) {
 
-      if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
+			sling.setDx(0);
 
-         starship.setDx(0);
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+			sling.setDx(0);
 
-      if (e.getKeyCode() == KeyEvent.VK_UP)
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+			sling.setDy(0);
 
-         starship.setDy(0);
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+			sling.setDy(0);
 
-      if (e.getKeyCode() == KeyEvent.VK_DOWN)
+	}
 
-         starship.setDy(0);
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+	}
 
-   }
+	public static void main(String args[]) {
 
-   @Override
-   public void keyTyped(KeyEvent arg0) {
-   }
+		JFrame jf = new JFrame();
 
-//   public static void main(String args[]) {
-//
-//      JFrame jf = new JFrame();
-//
-//      BeeRun g = new BeeRun(jf);
-//
-//      g.gameLoop();
-//   }
+		BeeRun g = new BeeRun(jf);
+
+		g.gameLoop();
+	}
 
 }
+
