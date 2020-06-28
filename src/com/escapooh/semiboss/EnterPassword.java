@@ -19,6 +19,7 @@ import javax.swing.text.StyledEditorKit.BoldAction;
 
 import com.escapooh.game.bee.BeeRun;
 import com.escapooh.game.bee.testFrame;
+import com.escapooh.game.gameover.GameOver;
 import com.escapooh.pooo.BeeRoom;
 import com.escapooh.pooo.MainRoom;
 import com.escapooh.pooo.Room1;
@@ -241,8 +242,10 @@ public class EnterPassword extends JPanel {
 						backLabel.add(life3);
 						jp.add(backLabel);
 						jf.add(jp);
-					}else {
-					
+						
+						ChangePanel cp = new ChangePanel(jf, jp);
+						GameOver t = new GameOver(jf);
+							cp.replacePanel(t); //패널 교체
 					}
 				}
 			}
