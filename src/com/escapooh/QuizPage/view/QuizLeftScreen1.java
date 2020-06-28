@@ -37,13 +37,14 @@ public class QuizLeftScreen1 extends JPanel	 {
 		as.setFont(font1);
 		jp.add(as);
 		as.setBounds(560, 535, 90, 60);
-		Font font = new Font("sans serif",Font.BOLD, 33);
+		Font font = new Font("sans serif",Font.BOLD, 25);
 		
 //
 		String[] s = new String[3];
-		s[0] = "내용1출력";
-		s[1] = "내용2출력";
-		s[2] = "내용3출력";
+		s[0] = "음력으로 매월 마지막 날에 뜨는\n" + "달의 이름은 무엇일까요?\n"+"1번 그믐달 2번초승달\n" + "3번 보름달 4번 섣달\n";
+		s[1] = "000돌담길은 정동길 이라고도 불리며,\n" +" 우리나라에 길 가운데 \n" + 
+				"가장 유명한 길 중 하나입니다.\n"+"  000에 들어갈 말은 무엇일까요?\n"+"1덕수궁2경복궁3경희궁4제주도";
+		s[2] = "다음 중 나라와 화폐단위의 연결이 옳지\n"+" 않은 것은 무엇일까요?\n"+"1영국:달러 2:중국:위안\n"+"3일본:엔 4칠레페소";
 		int ran = (int)(Math.random()*s.length);
 		
 		
@@ -55,7 +56,7 @@ public class QuizLeftScreen1 extends JPanel	 {
 		ta.setBounds(375, 250, 520, 270);
 		ta.setEditable(false);
 	
-		Image back1 = new ImageIcon("background/QuizMainScreen.png").getImage().getScaledInstance(1200, 800, 0);
+		Image back1 = new ImageIcon("background/Honey background.png").getImage().getScaledInstance(1200, 800, 0);
 		JLabel label1 = new JLabel(new ImageIcon(back1));
 		ImageIcon answer = new ImageIcon("background/answer.png");
 		

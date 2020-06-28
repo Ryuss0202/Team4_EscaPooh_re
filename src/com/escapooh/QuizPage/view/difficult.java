@@ -14,39 +14,31 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import com.escapooh.pooo.Room2;
+import com.escapooh.pooo.Room1;
 import com.escapooh.prol.ChangePanel;
 
-public class QuizLeftScreen2 extends JPanel {
-	JFrame jf;
+public class difficult extends JPanel {
+	JFrame jf ;
 	JPanel jp;
-	
-	public QuizLeftScreen2(JFrame jf) {
+	public difficult() {
 		Scanner sc = new Scanner(System.in);
 		jf.setSize(1200, 800);
 		
 		JPanel jp = new JPanel();
-		JTextField as = new JTextField(20);
-
-		Font font1 = new Font("sans serif",Font.BOLD, 40);
+		JTextField as = new JTextField(30);
+		
+		Font font1 = new Font("맑은고딕",Font.BOLD, 40);
 		as.setFont(font1);
 		jp.add(as);
 		as.setBounds(560, 535, 90, 60);
 		Font font = new Font("sans serif",Font.BOLD, 25);
 		
-		String[] s = new String[3];
-		s[0] = "메소포타미아에서 사용되었던 고문자로 자획이,\n"+"쐐기 문양으로 되어있는고문자는 무엇일까요?\n"+"1표의문자 2설형문자 3표음문자\n"+"4음절문자 5단음문자";
-		s[1] = "14세기-16세기 서유럽 문명사에서 나타나는\n"+" 문화운동으로 부활,재생이라는 뜻을 가지고\n"+ 
-				"있는 이 문화운동은 무엇일까요?\n"+
-				"1모더니즘 2르네상스 3종교개혁\n"+
-				"4바로크 5휴머니즘";
-		s[2] = "1970년대 미국과 구소련을 중심으로한\n"+"동,서진영간의 관계를 나타대는 말로 다음 중\n"+ 
-				"데탕트(detente)와 관련된 것은 무엇일까요?\n"
-				+"1냉전시대 2긴장완화 3양적완화 4무정부주의";
-		int ran =(int)(Math.random()*s.length);
+//
+
 		
 		JTextArea ta = new JTextArea(3,10);
-		ta.setText(s[ran]);
+		ta.setText("양자역확과 상대성이론은 어떤 관련이 있는지와\n"+"끈이론을 수학적으로 설명하시오");
+		//ta.setText("인기를 끌었던 드라마로 \n" + "80,90년대 이야기를 담아내었고\n" + "3개의 시리즈까지 나온 \n" +"이 드라마제목에 들어가는\n"+ "첫 번째 숫자는 무엇인가요?");
 		ta.setFont(font);
 		jp.add(ta);
 		ta.setBounds(375, 250, 520, 270);
@@ -54,9 +46,7 @@ public class QuizLeftScreen2 extends JPanel {
 	
 		Image back1 = new ImageIcon("background/Honey background.png").getImage().getScaledInstance(1200, 800, 0);
 		JLabel label1 = new JLabel(new ImageIcon(back1));
-		
 		ImageIcon answer = new ImageIcon("background/answer.png");
-		
 		
 		JButton answeres = new JButton(answer);
 		
@@ -69,11 +59,13 @@ public class QuizLeftScreen2 extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(as.getText().equals("2")) {
+			
+				if(as.getText().equals("")) {
 					System.out.println("정답입니다");
-					ChangePanel cp = new ChangePanel(jf, jp);
-					Room2 t = new Room2(jf);
-					cp.replacePanel(t);
+					 
+//		        	ChangePanel cp = new ChangePanel(jf, jp);
+//					Room1 t = new Room1(jf);
+//						cp.replacePanel(t); //패널 교체
 				}else {
 					System.out.println("틀렸습니다");
 				}
@@ -90,6 +82,15 @@ public class QuizLeftScreen2 extends JPanel {
 		
 		jf.setVisible(true);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 	}
 	
-}
+	public void main(String[] args) {
+		difficult Frame = new difficult();
+	}
+		
+		
+	}
+	
+	
+
