@@ -39,25 +39,17 @@ public class QuizLeftScreen1 extends JPanel	 {
 		as.setBounds(560, 535, 90, 60);
 		Font font = new Font("sans serif",Font.BOLD, 33);
 		
-//		seon jung	
-//		String[] sarray= new String[3];
-//		sarray[0] =  "Random string test1";
-//		sarray[1] =  "Random string test2";
-//		sarray[2] =  "Random string test3";
-//		for(int i = 0; i<3; i++) {
-//			int s = (int)(Math.random() * sarray.length);
-//		}
-//		Random r = new Random();
-//		String sarrayText = sarrayText[(int) (Math.random() * sarray.length)];
 //
-//		
-//		for(int i = 0; i < 3; i++) {
-//			int sarrayIndex = r.nextInt(sarray.length);
-//		}
+		String[] s = new String[3];
+		s[0] = "내용1출력";
+		s[1] = "내용2출력";
+		s[2] = "내용3출력";
+		int ran = (int)(Math.random()*s.length);
 		
 		
 		JTextArea ta = new JTextArea(3,10);
-		ta.setText("인기를 끌었던 드라마로 \n" + "80,90년대 이야기를 담아내었고\n" + "3개의 시리즈까지 나온 \n" +"이 드라마제목에 들어가는\n"+ "첫 번째 숫자는 무엇인가요?");
+		ta.setText(s[ran]);
+		//ta.setText("인기를 끌었던 드라마로 \n" + "80,90년대 이야기를 담아내었고\n" + "3개의 시리즈까지 나온 \n" +"이 드라마제목에 들어가는\n"+ "첫 번째 숫자는 무엇인가요?");
 		ta.setFont(font);
 		jp.add(ta);
 		ta.setBounds(375, 250, 520, 270);
