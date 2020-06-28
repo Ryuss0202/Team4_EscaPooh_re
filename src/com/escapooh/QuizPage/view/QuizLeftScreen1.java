@@ -20,13 +20,24 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import com.escapooh.game.gameover.GameOver;
 import com.escapooh.pooo.Room1;
 import com.escapooh.prol.ChangePanel;
 
 public class QuizLeftScreen1 extends JPanel	 {
 	JFrame jf ;
 	JPanel jp;
+	private int life;
 	public QuizLeftScreen1(JFrame jf) {
+		
+		life = 3;
+		ImageIcon fullLife_img1 = new ImageIcon("images/heart_ full 1.png") ;
+	    ImageIcon fullLife_img2 = new ImageIcon("images/heart_ full 1.png");
+	    ImageIcon fullLife_img3 = new ImageIcon("images/heart_ full 1.png"); 
+	    ImageIcon empty1 = new ImageIcon("heart_empty.png");
+	    ImageIcon empty2 = new ImageIcon("heart_empty.png");
+	    ImageIcon empty3 = new ImageIcon("heart_empty.png");
+		
 		Scanner sc = new Scanner(System.in);
 		jf.setSize(1200, 800);
 		
@@ -61,6 +72,24 @@ public class QuizLeftScreen1 extends JPanel	 {
 		
 		JButton answeres = new JButton(answer);
 		
+		JLabel life1= new JLabel(fullLife_img1);
+		life1.setBounds(56, 6,87 ,94);
+	
+		JLabel life2 = new JLabel(fullLife_img2);
+		life2.setBounds(149, 6,87 ,94);
+		
+		JLabel life3 = new JLabel(fullLife_img3);
+		life3.setBounds(238, 6,87 ,94);
+		
+		JLabel emptylife1= new JLabel(empty1);
+		emptylife1.setBounds(56, 6,87 ,94);
+		
+		JLabel emptylife2 = new JLabel(empty2);
+		emptylife2.setBounds(56, 6,87 ,94);
+		
+		JLabel emptylife3= new JLabel(empty3);
+		emptylife3.setBounds(56, 6,87 ,94);
+		
 		answeres.setBounds(503, 600, 200, 100);
 		answeres.setBorderPainted(false);
 		answeres.setFocusPainted(false);
@@ -79,11 +108,79 @@ public class QuizLeftScreen1 extends JPanel	 {
 						cp.replacePanel(t); //패널 교체
 				}else {
 					System.out.println("틀렸습니다");
+					
+					life --;
+					if(life == 2) {
+						life3.remove(life3);
+						life3.setIcon(empty3);
+						
+						label1.add(life1);
+						label1.add(life2);
+						label1.add(ta);
+						label1.add(as);
+						label1.add(answeres);
+						label1.add(life1);
+						label1.add(life2);
+						label1.add(life3);
+						
+						jp.add(label1);
+						jf.add(jp);
+						
+					}else if(life==1) {
+						life3.remove(life3);
+						life2.remove(life2);
+						life3.setIcon(empty3);
+						life2.setIcon(empty2);
+						
+				
+						label1.add(life1);
+						label1.add(life2);
+						label1.add(life3);
+						label1.add(ta);
+						label1.add(as);
+						label1.add(answeres);
+						label1.add(life1);
+						label1.add(life2);
+						label1.add(life3);
+						
+						jp.add(label1);
+						jf.add(jp);
+						
+					}else if(life ==0) {
+						life3.remove(life3);
+						life2.remove(life2);
+						life1.remove(life1);
+						life3.setIcon(empty3);
+						life2.setIcon(empty2);
+						life1.setIcon(empty1);
+						
+						
+						label1.add(life1);
+						label1.add(life2);
+						label1.add(life3);
+						label1.add(ta);
+						label1.add(as);
+						label1.add(answeres);
+						label1.add(life1);
+						label1.add(life2);
+						label1.add(life3);
+						
+						jp.add(label1);
+						jf.add(jp);
+						
+						
+						ChangePanel cp = new ChangePanel(jf, jp);
+						GameOver t = new GameOver(jf);
+							cp.replacePanel(t); //패널 교체
 				}
 				
 			}
-		});
+		}
+			});
 		
+		label1.add(life1);
+		label1.add(life2);
+		label1.add(life3);
 		label1.add(ta);
 		label1.add(as);
 		label1.add(answeres);
